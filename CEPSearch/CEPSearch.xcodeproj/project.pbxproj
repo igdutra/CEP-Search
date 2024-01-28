@@ -13,6 +13,7 @@
 		9253CD5D2B66B17B00FDB13F /* CEPiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD552B66B17B00FDB13F /* CEPiOS.framework */; };
 		9253CD622B66B17B00FDB13F /* CEPiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD612B66B17B00FDB13F /* CEPiOSTests.swift */; };
 		9253CD6B2B66B1F200FDB13F /* CEPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6A2B66B1F200FDB13F /* CEPViewController.swift */; };
+		9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		9253CD5C2B66B17B00FDB13F /* CEPiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD612B66B17B00FDB13F /* CEPiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPiOSTests.swift; sourceTree = "<group>"; };
 		9253CD6A2B66B1F200FDB13F /* CEPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPViewController.swift; sourceTree = "<group>"; };
+		9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				9253CD4E2B66B10500FDB13F /* CEPDetails.swift */,
+				9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */,
 			);
 			path = "CEP Feature";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9253CD4F2B66B10500FDB13F /* CEPDetails.swift in Sources */,
+				9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
