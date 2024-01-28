@@ -6,6 +6,7 @@
 //
 
 import CEPSearch
+import CEPiOS
 
 func makeCEPDetailsFixture(cep: String = "00000-000",
                            street: String = "Default Street",
@@ -21,4 +22,15 @@ func makeCEPDetailsFixture(cep: String = "00000-000",
                       city: city,
                       state: state
     )
+}
+
+func makeCEPDetailsViewDataFixture(cepText: String = "CEP: 12345-678",
+                                   addressText: String = "Address: Example Street, Apt 101",
+                                   districtText: String = "District: Example District",
+                                   cityStateText: String = "City/State: Example City, EX"
+) -> CEPDetailsViewData {
+    return CEPDetailsViewData(cepText: cepText,
+                              addressText: addressText,
+                              districtText: districtText,
+                              cityStateText: cityStateText)
 }
