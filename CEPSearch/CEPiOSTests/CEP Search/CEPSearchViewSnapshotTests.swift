@@ -8,27 +8,8 @@
 import XCTest
 import UIKit
 import SwiftUI
+import CEPiOS
 
-struct CEPSearchView: View {
-    @State private var cep: String = ""
-
-    var body: some View {
-        VStack(spacing: 20) {
-            TextField("Digite o CEP", text: $cep)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-            Button("Procurar Endereço") {
-                // Implement search functionality here
-            }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
-        }
-        .padding()
-    }
-}
 
 final class CEPSearchViewSnapshotTests: XCTestCase {
 
