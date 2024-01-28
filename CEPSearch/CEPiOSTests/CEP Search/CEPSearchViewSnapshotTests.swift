@@ -25,7 +25,7 @@ final class CEPSearchViewSnapshotTests: XCTestCase {
 
 private extension CEPSearchViewSnapshotTests {
     func makeSUT() -> UIViewController {
-        let view = CEPSearchView()
+        let view = CEPSearchView(placeholderText: "Digite o CEP", buttonText: "Procurar Endereço")
         let hostingController = UIHostingController(rootView: view)
         return hostingController
     }
