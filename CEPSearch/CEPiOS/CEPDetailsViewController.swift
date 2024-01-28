@@ -125,3 +125,15 @@ public final class CEPDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - Preview
+
+#Preview {
+    CEPDetailsViewController(cepDetails:
+        CEPDetails(cep: .init(),
+                   street: .init(),
+                   complement: .init(),
+                   district: .init(),
+                   city: .init(),
+                   state: .init())
+    )
+}
