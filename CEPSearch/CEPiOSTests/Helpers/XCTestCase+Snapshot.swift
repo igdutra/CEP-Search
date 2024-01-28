@@ -12,6 +12,16 @@ import XCTest
  
  Code developed by the Essential Developer and used in the Essential Feed project.
  Reference: https://github.com/igdutra/EssentialFeed
+ 
+ Usage:      
+ 
+ 1 - first record the view using
+ record(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "SEARCH_light")
+ 
+ 2- Once recorded, assert it
+ assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "SEARCH_light")
+ 
+ 3 - Recorded using iPhone 17 iOS 17.2 Simulator
 
 */
 extension XCTestCase {
