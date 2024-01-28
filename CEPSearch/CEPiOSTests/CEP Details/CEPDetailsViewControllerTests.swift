@@ -22,10 +22,10 @@ final class CEPDetailsViewControllerTests: XCTestCase {
         // Force view lifecycle
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.cepLabel.text, viewData.cepText)
-        XCTAssertEqual(sut.addressLabel.text, viewData.addressText)
-        XCTAssertEqual(sut.districtLabel.text, viewData.districtText)
-        XCTAssertEqual(sut.cityStateLabel.text, viewData.cityStateText)
+        XCTAssertEqual(sut.cepText(), viewData.cepText)
+        XCTAssertEqual(sut.addressText(), viewData.addressText)
+        XCTAssertEqual(sut.districtText(), viewData.districtText)
+        XCTAssertEqual(sut.cityStateText(), viewData.cityStateText)
     }
 }
 

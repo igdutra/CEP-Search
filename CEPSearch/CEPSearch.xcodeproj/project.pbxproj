@@ -31,6 +31,7 @@
 		9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */; };
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
 		9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */; };
+		9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CEPDetailsViewController+DSLs.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		92469F632B66E655002183D8 /* CEP Details */ = {
 			isa = PBXGroup;
 			children = (
+				9293D6E92B66F8F50099EAC3 /* Helpers */,
 				92469F672B66E67C002183D8 /* snapshots */,
 				92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */,
 				9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */,
@@ -277,6 +280,14 @@
 				929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */,
 			);
 			path = "Shared Helpers";
+			sourceTree = "<group>";
+		};
+		9293D6E92B66F8F50099EAC3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */,
 				92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */,
 				92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */,
 				9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */,
