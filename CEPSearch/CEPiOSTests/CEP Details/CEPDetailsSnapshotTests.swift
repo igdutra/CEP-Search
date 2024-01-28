@@ -57,9 +57,7 @@ class CEPDetailsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +66,7 @@ class CEPDetailsViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupScrollView()
         setupLabels()
     }
@@ -143,8 +141,8 @@ final class CEPDetailsSnapshotTests: XCTestCase {
 
 private extension CEPDetailsSnapshotTests {
     func makeSUT() -> CEPDetailsViewController {
-        let fixture = makeCEPDetailsFixture()
-        let viewController = CEPDetailsViewController(cepDetails: <#T##CEPDetails#>)
-        return hostingController
+        let details = makeCEPDetailsFixture()
+        let viewController = CEPDetailsViewController(cepDetails: details)
+        return viewController
     }
 }
