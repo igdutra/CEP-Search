@@ -23,11 +23,11 @@
 		92469F6B2B66E875002183D8 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F682B66E74C002183D8 /* Fixtures.swift */; };
 		92469F6E2B66E8C0002183D8 /* DETAILS_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 92469F6C2B66E8C0002183D8 /* DETAILS_dark.png */; };
 		92469F6F2B66E8C0002183D8 /* DETAILS_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 92469F6D2B66E8C0002183D8 /* DETAILS_light.png */; };
+		92469F712B66EADE002183D8 /* CEPDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */; };
 		9253CD3E2B66B0ED00FDB13F /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; };
 		9253CD432B66B0ED00FDB13F /* CEPSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */; };
 		9253CD4F2B66B10500FDB13F /* CEPDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD4E2B66B10500FDB13F /* CEPDetails.swift */; };
 		9253CD5D2B66B17B00FDB13F /* CEPiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD552B66B17B00FDB13F /* CEPiOS.framework */; };
-		9253CD6B2B66B1F200FDB13F /* CEPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6A2B66B1F200FDB13F /* CEPViewController.swift */; };
 		9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */; };
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
 /* End PBXBuildFile section */
@@ -82,13 +82,13 @@
 		92469F682B66E74C002183D8 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		92469F6C2B66E8C0002183D8 /* DETAILS_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DETAILS_dark.png; sourceTree = "<group>"; };
 		92469F6D2B66E8C0002183D8 /* DETAILS_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DETAILS_light.png; sourceTree = "<group>"; };
+		92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewController.swift; sourceTree = "<group>"; };
 		9253CD352B66B0ED00FDB13F /* CEPSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CEPSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD3D2B66B0ED00FDB13F /* CEPSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchTests.swift; sourceTree = "<group>"; };
 		9253CD4E2B66B10500FDB13F /* CEPDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetails.swift; sourceTree = "<group>"; };
 		9253CD552B66B17B00FDB13F /* CEPiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CEPiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD5C2B66B17B00FDB13F /* CEPiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9253CD6A2B66B1F200FDB13F /* CEPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPViewController.swift; sourceTree = "<group>"; };
 		9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetter.swift; sourceTree = "<group>"; };
 		929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 		9253CD562B66B17B00FDB13F /* CEPiOS */ = {
 			isa = PBXGroup;
 			children = (
-				9253CD6A2B66B1F200FDB13F /* CEPViewController.swift */,
 				92469F4C2B66D37E002183D8 /* CEPSearchView.swift */,
+				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
 			);
 			path = CEPiOS;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9253CD6B2B66B1F200FDB13F /* CEPViewController.swift in Sources */,
+				92469F712B66EADE002183D8 /* CEPDetailsViewController.swift in Sources */,
 				92469F4D2B66D37E002183D8 /* CEPSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
