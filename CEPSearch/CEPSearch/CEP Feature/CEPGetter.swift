@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CEPGetter {
+public protocol CEPGetter {
     func getCEPDetails(for cep: String) async throws -> CEPDetails
 }
