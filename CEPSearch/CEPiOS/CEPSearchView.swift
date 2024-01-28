@@ -6,27 +6,51 @@
 //
 
 import SwiftUI
+import CEPSearch
 
-public struct CEPSearchView: View {
-    @State private var cep: String = ""
+// MARK: - Container: Contains the reference to the Loader
+
+public struct CEPSearchViewContainer: View {
+    public let cepGetter: CEPGetter
     public var placeholderText: String
     public var buttonText: String
     
-    public init(placeholderText: String, buttonText: String) {
+    public init(cepGetter: CEPGetter, placeholderText: String, buttonText: String) {
+        self.cepGetter = cepGetter
         self.placeholderText = placeholderText
         self.buttonText = buttonText
     }
-    
-    // MARK: - View
 
     public var body: some View {
+        CEPSearchView(placeholderText: "Digite o CEP",
+                      buttonText: "Procurar Endereço",
+                      action: fetchCEPDetails
+        )
+    }
+
+    private func fetchCEPDetails(cep: String) async {
+ 
+    }
+}
+
+// MARK: - Pure View: Depend on Data only so it can be used in the preview
+
+struct CEPSearchView: View {
+    @State private var cep: String = ""
+    var placeholderText: String
+    var buttonText: String
+    var action: (String) async -> Void
+
+    var body: some View {
         VStack(spacing: 20) {
             TextField(placeholderText, text: $cep)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
             Button(buttonText) {
-                // Implement search functionality here
+                Task {
+                    await action(cep)
+                }
             }
             .padding()
             .foregroundColor(.white)
@@ -35,4 +59,10 @@ public struct CEPSearchView: View {
         }
         .padding()
     }
+}
+
+// MARK: - Preview
+
+#Preview {
+    CEPSearchView(placeholderText: "Digite o CEP", buttonText: "Procurar Endereço", action: { _ in })
 }

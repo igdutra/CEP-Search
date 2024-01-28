@@ -9,7 +9,7 @@ import XCTest
 import UIKit
 import SwiftUI
 import CEPiOS
-
+import CEPSearch
 
 final class CEPSearchViewSnapshotTests: XCTestCase {
 
@@ -25,8 +25,24 @@ final class CEPSearchViewSnapshotTests: XCTestCase {
 
 private extension CEPSearchViewSnapshotTests {
     func makeSUT() -> UIViewController {
-        let view = CEPSearchView(placeholderText: "Digite o CEP", buttonText: "Procurar Endereço")
+        let view = CEPSearchViewContainer(cepGetter: CEPGetterSpy(),
+                                          placeholderText: "Digite o CEP",
+                                          buttonText: "Procurar Endereço")
         let hostingController = UIHostingController(rootView: view)
         return hostingController
+    }
+}
+
+// MARK: - Spy
+private extension CEPSearchViewSnapshotTests {
+    class CEPGetterSpy: CEPGetter {
+        func getCEPDetails(for cep: String) async throws -> CEPDetails {
+            return CEPDetails(cep: .init(),
+                              street: .init(),
+                              complement: .init(),
+                              district: .init(),
+                              city: .init(),
+                              state: .init())
+        }
     }
 }
