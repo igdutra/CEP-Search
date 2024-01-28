@@ -18,6 +18,8 @@
 		92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */; };
 		92469F602B66DDAF002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */; };
 		92469F622B66DDB1002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */; };
+		92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */; };
+		92469F692B66E74C002183D8 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F682B66E74C002183D8 /* Fixtures.swift */; };
 		9253CD3E2B66B0ED00FDB13F /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; };
 		9253CD432B66B0ED00FDB13F /* CEPSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */; };
 		9253CD4F2B66B10500FDB13F /* CEPDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD4E2B66B10500FDB13F /* CEPDetails.swift */; };
@@ -73,6 +75,8 @@
 		92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewTests.swift; sourceTree = "<group>"; };
 		92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterSpy.swift; sourceTree = "<group>"; };
 		92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsSnapshotTests.swift; sourceTree = "<group>"; };
+		92469F682B66E74C002183D8 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		9253CD352B66B0ED00FDB13F /* CEPSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CEPSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD3D2B66B0ED00FDB13F /* CEPSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchTests.swift; sourceTree = "<group>"; };
@@ -159,8 +163,25 @@
 			isa = PBXGroup;
 			children = (
 				92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */,
+				92469F682B66E74C002183D8 /* Fixtures.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		92469F632B66E655002183D8 /* CEP Details */ = {
+			isa = PBXGroup;
+			children = (
+				92469F672B66E67C002183D8 /* snapshots */,
+				92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */,
+			);
+			path = "CEP Details";
+			sourceTree = "<group>";
+		};
+		92469F672B66E67C002183D8 /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = snapshots;
 			sourceTree = "<group>";
 		};
 		9253CD2B2B66B0ED00FDB13F = {
@@ -225,6 +246,7 @@
 			children = (
 				929235B22B66CA7900BE187B /* Shared Helpers */,
 				92469F442B66CD16002183D8 /* CEP Search */,
+				92469F632B66E655002183D8 /* CEP Details */,
 			);
 			path = CEPiOSTests;
 			sourceTree = "<group>";
@@ -446,6 +468,7 @@
 			files = (
 				9253CD6B2B66B1F200FDB13F /* CEPViewController.swift in Sources */,
 				92469F4D2B66D37E002183D8 /* CEPSearchView.swift in Sources */,
+				92469F692B66E74C002183D8 /* Fixtures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */,
+				92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */,
 				92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */,
 				92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */,
 				929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */,
