@@ -20,12 +20,26 @@ import CEPiOS
 final class CEPSearchViewTests: XCTestCase {
 
     func test_init_doesNotRequestCEP() {
-        let spy = CEPGetterSpy()
-        let _ = CEPSearchViewContainer(cepGetter: spy,
-                                       placeholderText: .init(),
-                                       buttonText: .init())
+        let (_, spy) = makeSUT()
         
         XCTAssertEqual(spy.receivedMessages, [], "Expected no CEP request on view initialization")
     }
 
+}
+
+// MARK: - Helpers
+
+private extension CEPSearchViewTests {
+    func makeSUT() -> (sut: CEPSearchViewContainer, spy: CEPGetterSpy) {
+        let spy = CEPGetterSpy()
+        let sut = CEPSearchViewContainer(cepGetter: spy,
+                                         placeholderText: .init(),
+                                         buttonText: .init())
+        
+        trackForMemoryLeaks(spy)
+//        trackForMemoryLeaks(sut)
+        // TODO: Search for a good way to add memory leak tracking to SwiftUI View.
+        
+        return (sut, spy)
+    }
 }
