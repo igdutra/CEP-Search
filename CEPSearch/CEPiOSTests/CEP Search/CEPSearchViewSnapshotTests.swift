@@ -32,17 +32,3 @@ private extension CEPSearchViewSnapshotTests {
         return hostingController
     }
 }
-
-// MARK: - Spy
-private extension CEPSearchViewSnapshotTests {
-    class CEPGetterSpy: CEPGetter {
-        func getCEPDetails(for cep: String) async throws -> CEPDetails {
-            return CEPDetails(cep: .init(),
-                              street: .init(),
-                              complement: .init(),
-                              district: .init(),
-                              city: .init(),
-                              state: .init())
-        }
-    }
-}

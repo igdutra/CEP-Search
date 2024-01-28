@@ -14,6 +14,8 @@
 		92469F4D2B66D37E002183D8 /* CEPSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F4C2B66D37E002183D8 /* CEPSearchView.swift */; };
 		92469F4F2B66D755002183D8 /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; };
 		92469F502B66D755002183D8 /* CEPSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */; };
+		92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */; };
 		9253CD3E2B66B0ED00FDB13F /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; };
 		9253CD432B66B0ED00FDB13F /* CEPSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */; };
 		9253CD4F2B66B10500FDB13F /* CEPDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD4E2B66B10500FDB13F /* CEPDetails.swift */; };
@@ -66,6 +68,8 @@
 		92469F462B66CF14002183D8 /* SEARCH_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_dark.png; sourceTree = "<group>"; };
 		92469F472B66CF14002183D8 /* SEARCH_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_light.png; sourceTree = "<group>"; };
 		92469F4C2B66D37E002183D8 /* CEPSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchView.swift; sourceTree = "<group>"; };
+		92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewTests.swift; sourceTree = "<group>"; };
+		92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterSpy.swift; sourceTree = "<group>"; };
 		9253CD352B66B0ED00FDB13F /* CEPSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CEPSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD3D2B66B0ED00FDB13F /* CEPSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchTests.swift; sourceTree = "<group>"; };
@@ -116,8 +120,10 @@
 		92469F442B66CD16002183D8 /* CEP Search */ = {
 			isa = PBXGroup;
 			children = (
+				92469F592B66DA7C002183D8 /* Helpers */,
 				92469F452B66CD22002183D8 /* snapshots */,
 				92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */,
+				92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */,
 			);
 			path = "CEP Search";
 			sourceTree = "<group>";
@@ -136,6 +142,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92469F592B66DA7C002183D8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9253CD2B2B66B0ED00FDB13F = {
@@ -197,7 +211,7 @@
 		9253CD602B66B17B00FDB13F /* CEPiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				929235B22B66CA7900BE187B /* Helpers */,
+				929235B22B66CA7900BE187B /* Shared Helpers */,
 				92469F442B66CD16002183D8 /* CEP Search */,
 			);
 			path = CEPiOSTests;
@@ -212,13 +226,13 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		929235B22B66CA7900BE187B /* Helpers */ = {
+		929235B22B66CA7900BE187B /* Shared Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */,
 				929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */,
 			);
-			path = Helpers;
+			path = "Shared Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,9 +440,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */,
 				92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */,
 				92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */,
 				929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */,
+				92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
