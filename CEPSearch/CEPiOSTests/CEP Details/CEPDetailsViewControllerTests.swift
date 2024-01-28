@@ -11,7 +11,7 @@ import CEPSearch
 
 final class CEPDetailsViewControllerTests: XCTestCase {
     
-    func test_labelTexts_withKnownViewData() {
+    func test_viewInitialization_rendersProvidedData() {
         let viewData = CEPDetailsViewData(cepText: "CEP: 12345-678",
                                           addressText: "Address: Example Street, Apt 101",
                                           districtText: "District: Example District",
