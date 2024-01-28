@@ -42,7 +42,7 @@ struct CEPSearchView: View {
     var action: (String) async -> Void
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 24) {
             TextField(placeholderText, text: $cep)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
