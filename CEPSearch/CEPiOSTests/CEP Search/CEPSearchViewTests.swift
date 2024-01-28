@@ -24,7 +24,29 @@ final class CEPSearchViewTests: XCTestCase {
         
         XCTAssertEqual(spy.receivedMessages, [], "Expected no CEP request on view initialization")
     }
+    
+//  TODO: Study how to test SwiftUI Views
+//    func test_buttonPressed_requestCEP() { }
+    
+//    If this was a UIKit view, we could leverage of some helpers like the ones below, to simulate an actual tap in a button.
+/*
+ extension UIControl {
+     func simulate(event: UIControl.Event) {
+         allTargets.forEach { target in
+             actions(forTarget: target, forControlEvent: event)?.forEach {
+                 (target as NSObject).perform(Selector($0))
+             }
+         }
+     }
+ }
+ 
+ extension UIButton {
+     func simulateTap() {
+         simulate(event: .touchUpInside)
+     }
+ }
 
+ */
 }
 
 // MARK: - Helpers
