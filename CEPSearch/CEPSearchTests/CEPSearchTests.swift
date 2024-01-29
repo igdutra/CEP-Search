@@ -11,4 +11,7 @@ import XCTest
 final class CEPSearchTests: XCTestCase {
 
 
+    func test_example_macOSTest() {
+        print("Placeholder test")
+    }
 }

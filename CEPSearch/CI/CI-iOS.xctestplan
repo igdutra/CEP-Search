@@ -20,6 +20,14 @@
         "identifier" : "9253CD5B2B66B17B00FDB13F",
         "name" : "CEPiOSTests"
       }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CEPSearch.xcodeproj",
+        "identifier" : "9253CD3C2B66B0ED00FDB13F",
+        "name" : "CEPSearchTests"
+      }
     }
   ],
   "version" : 1
