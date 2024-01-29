@@ -203,7 +203,6 @@
 			children = (
 				9253CD372B66B0ED00FDB13F /* CEPSearch */,
 				9253CD562B66B17B00FDB13F /* CEPiOS */,
-				92E3BB2E2B67BFC8001AA958 /* CI */,
 				9253CD6C2B66B23900FDB13F /* Tests */,
 				9253CD362B66B0ED00FDB13F /* Products */,
 				92469F4E2B66D755002183D8 /* Frameworks */,
@@ -271,6 +270,7 @@
 			children = (
 				9253CD412B66B0ED00FDB13F /* CEPSearchTests */,
 				9253CD602B66B17B00FDB13F /* CEPiOSTests */,
+				92E3BB2E2B67BFC8001AA958 /* CI */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
