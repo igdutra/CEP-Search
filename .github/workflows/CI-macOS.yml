@@ -1,3 +1,15 @@
+# Command to be used in the terminal, for testing purposes
+# Note that CI uses arch=x86_64 and terminal command arch=arm64
+
+# xcodebuild clean build test \
+#   -project CEPSearch/CEPSearch.xcodeproj/ \
+#   -scheme "CEPSearch" \
+#   -sdk macosx14.2 \
+#   -destination "platform=macOS,arch=arm64" \
+#   -testPlan "CI-macOS" \
+#   CODE_SIGN_IDENTITY="" \
+#   CODE_SIGNING_REQUIRED=NO
+
 name: CI-macOS
 
 on:
