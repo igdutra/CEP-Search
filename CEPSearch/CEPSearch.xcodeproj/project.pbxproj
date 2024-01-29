@@ -96,6 +96,7 @@
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CEPDetailsViewController+DSLs.swift"; sourceTree = "<group>"; };
+		92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-iOS.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +203,7 @@
 			children = (
 				9253CD372B66B0ED00FDB13F /* CEPSearch */,
 				9253CD562B66B17B00FDB13F /* CEPiOS */,
+				92E3BB2E2B67BFC8001AA958 /* CI */,
 				9253CD6C2B66B23900FDB13F /* Tests */,
 				9253CD362B66B0ED00FDB13F /* Products */,
 				92469F4E2B66D755002183D8 /* Frameworks */,
@@ -288,6 +290,14 @@
 				9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		92E3BB2E2B67BFC8001AA958 /* CI */ = {
+			isa = PBXGroup;
+			children = (
+				92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */,
+			);
+			path = CI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

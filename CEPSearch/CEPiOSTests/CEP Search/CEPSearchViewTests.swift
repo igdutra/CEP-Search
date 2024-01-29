@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import CEPiOS
+import CEPiOS // Test the module through its public interface
 
 /* NOTE:
  
