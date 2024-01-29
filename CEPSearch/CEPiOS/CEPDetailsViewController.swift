@@ -84,7 +84,7 @@ public final class CEPDetailsViewController: UIViewController {
 
 
 // MARK: - Preview
-
+@available(iOS 17.0, *)
 #Preview {
     CEPDetailsViewController(viewData:
        CEPDetailsViewData(cepText: "CEP",
