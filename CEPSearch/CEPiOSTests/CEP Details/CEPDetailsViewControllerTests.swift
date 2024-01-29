@@ -6,8 +6,8 @@
 //
 
 import XCTest
-import CEPiOS
-import CEPSearch
+import CEPiOS // Test the module through its public interface
+import CEPSearch // Test the module through its public interface
 
 final class CEPDetailsViewControllerTests: XCTestCase {
     

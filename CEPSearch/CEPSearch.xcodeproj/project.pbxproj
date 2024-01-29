@@ -32,6 +32,7 @@
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
 		9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */; };
 		9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */; };
+		92D83E052B67C379006A952D /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D83E042B67C379006A952D /* Fixtures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,9 @@
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CEPDetailsViewController+DSLs.swift"; sourceTree = "<group>"; };
+		92D83E042B67C379006A952D /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-iOS.xctestplan"; sourceTree = "<group>"; };
+		92E9F2992B67C2DD005D2E96 /* CI-macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-macOS.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +273,7 @@
 			children = (
 				9253CD412B66B0ED00FDB13F /* CEPSearchTests */,
 				9253CD602B66B17B00FDB13F /* CEPiOSTests */,
+				92E3BB2E2B67BFC8001AA958 /* CI */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			children = (
 				929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */,
 				929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */,
+				92D83E042B67C379006A952D /* Fixtures.swift */,
 			);
 			path = "Shared Helpers";
 			sourceTree = "<group>";
@@ -288,6 +294,15 @@
 				9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		92E3BB2E2B67BFC8001AA958 /* CI */ = {
+			isa = PBXGroup;
+			children = (
+				92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */,
+				92E9F2992B67C2DD005D2E96 /* CI-macOS.xctestplan */,
+			);
+			path = CI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,6 +521,7 @@
 				92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */,
 				92469F6B2B66E875002183D8 /* Fixtures.swift in Sources */,
 				92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */,
+				92D83E052B67C379006A952D /* Fixtures.swift in Sources */,
 				929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */,
 				92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */,
 				92469F622B66DDB1002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */,

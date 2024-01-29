@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "3E1105BA-9712-417A-BFB4-6E54C14611C4",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CEPSearch.xcodeproj",
+        "identifier" : "9253CD5B2B66B17B00FDB13F",
+        "name" : "CEPiOSTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CEPSearch.xcodeproj",
+        "identifier" : "9253CD3C2B66B0ED00FDB13F",
+        "name" : "CEPSearchTests"
+      }
+    }
+  ],
+  "version" : 1
+}
