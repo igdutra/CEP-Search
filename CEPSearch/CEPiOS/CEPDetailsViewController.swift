@@ -26,13 +26,13 @@ public final class CEPDetailsViewController: UIViewController {
     private let viewData: CEPDetailsViewData
     
     private(set) public lazy var cepTitleLabel: UILabel = createTitleLabel()
-    private lazy var addressLabel: CepInfoView = {
+    private(set) public lazy var addressView: CepInfoView = {
         CepInfoView(title: "Address", info: viewData.addressText)
     }()
-    private lazy var districtLabel: CepInfoView = {
+    private(set) public lazy var districtView: CepInfoView = {
         CepInfoView(title: "District", info: viewData.districtText)
     }()
-    private(set) lazy var cityStateLabel: CepInfoView = {
+    private(set) public lazy var cityStateView: CepInfoView = {
         CepInfoView(title: "City/State", info: viewData.cityStateText)
     }()
     
@@ -54,7 +54,7 @@ public final class CEPDetailsViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(cepTitleLabel)
         
-        let stackView = UIStackView(arrangedSubviews: [addressLabel, districtLabel, cityStateLabel])
+        let stackView = UIStackView(arrangedSubviews: [addressView, districtView, cityStateView])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false

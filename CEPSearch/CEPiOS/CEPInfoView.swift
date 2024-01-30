@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CepInfoView: UIView {
+public final class CepInfoView: UIView {
     private(set) public lazy var titleLabel = UILabel()
     private(set) public lazy var infoLabel = UILabel()
 

@@ -17,14 +17,14 @@ extension CEPDetailsViewController {
     }
     
     func addressText() -> String? {
-        addressLabel.text
+        addressView.infoLabel.text
     }
     
     func districtText() -> String? {
-        districtLabel.text
+        districtView.infoLabel.text
     }
     
     func cityStateText() -> String? {
-        cityStateLabel.text
+        cityStateView.infoLabel.text
     }
 }
