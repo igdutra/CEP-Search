@@ -7,6 +7,11 @@
 
 import CEPSearch
 
+struct CEPSearchViewData {
+    var placeholderText: String
+    var buttonText: String
+}
+
 final class CEPSearchViewModel {
     private var cepGetter: CEPGetter
     var cep: String = .init()

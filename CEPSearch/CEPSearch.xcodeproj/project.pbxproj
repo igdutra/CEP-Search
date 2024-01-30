@@ -239,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				9253CD4D2B66B0F800FDB13F /* CEP Feature */,
+				928150F72B69C2210031E8FE /* CEP Presentation */,
 			);
 			path = CEPSearch;
 			sourceTree = "<group>";
@@ -294,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				92469F4C2B66D37E002183D8 /* CEPSearchView.swift */,
-				928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */,
 				928150F32B69C0490031E8FE /* CEPSearchUIComposer.swift */,
 			);
 			path = "CEP Search";
@@ -304,9 +304,33 @@
 			isa = PBXGroup;
 			children = (
 				92596BC52B690F670021766F /* CEPInfoView.swift */,
-				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
 				92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */,
+				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
 				92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */,
+			);
+			path = "CEP Details";
+			sourceTree = "<group>";
+		};
+		928150F72B69C2210031E8FE /* CEP Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				928150F82B69C2320031E8FE /* CEP Search */,
+				928150F92B69C2390031E8FE /* CEP Details */,
+			);
+			path = "CEP Presentation";
+			sourceTree = "<group>";
+		};
+		928150F82B69C2320031E8FE /* CEP Search */ = {
+			isa = PBXGroup;
+			children = (
+				928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */,
+			);
+			path = "CEP Search";
+			sourceTree = "<group>";
+		};
+		928150F92B69C2390031E8FE /* CEP Details */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = "CEP Details";
 			sourceTree = "<group>";

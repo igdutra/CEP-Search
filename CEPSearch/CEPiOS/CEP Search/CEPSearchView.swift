@@ -8,11 +8,6 @@
 import SwiftUI
 import CEPSearch
 
-struct CEPSearchViewData {
-    var placeholderText: String
-    var buttonText: String
-}
-
 // MARK: - Pure View: Depend on Data only so it can be used in the preview
 
 public struct CEPSearchView: View {

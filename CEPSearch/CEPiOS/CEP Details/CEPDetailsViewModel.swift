@@ -7,6 +7,8 @@
 
 import CEPSearch
 
+// MARK: - Models
+
 public struct InfoStrings: Equatable {
     public let title: String
     public let info: String
@@ -30,6 +32,8 @@ public struct CEPDetailsViewData: Equatable {
         self.cityStateTexts = cityStateTexts
     }
 }
+
+// MARK: - ViewModel
 
 public final class CEPDetailsViewModel {
     typealias Observer<T> = (T) -> Void
