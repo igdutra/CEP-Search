@@ -32,33 +32,41 @@ public struct CEPDetailsViewData: Equatable {
     }
 }
 
-final class CEPDetailsViewModel {
+// TODO: move access controls to Composer
+public final class CEPDetailsViewModel {
+    typealias Observer<T> = (T) -> Void
+    
     private let model: CEPDetails
-    
-    init(model: CEPDetails) {
+    var onViewDataUpdated: Observer<CEPDetailsViewData>?
+
+    public init(model: CEPDetails) {
         self.model = model
+        formatData()
     }
-    
-    
+
+    // Note: Here, in the presentation layer, Localization for the Titles could be added
+    private func formatData() {
+        let address = model.complement.isEmpty ? model.street : "\(model.street), \(model.complement)"
+        let cityState = "\(model.city), \(model.state)"
+        let viewData = CEPDetailsViewData(cepText: model.cep,
+                                          addressTexts: InfoStrings(title: "Address", info: address),
+                                          districtTexts: InfoStrings(title: "District", info: model.district),
+                                          cityStateTexts: InfoStrings(title: "City/State", info: cityState))
+        onViewDataUpdated?(viewData)
+    }
 }
 
 public final class CEPDetailsViewController: UIViewController {
-    private let viewData: CEPDetailsViewData
+    private var viewModel: CEPDetailsViewModel
     
     private(set) public lazy var cepTitleLabel: UILabel = createTitleLabel()
-    private(set) public lazy var addressView: CepInfoView = {
-        CepInfoView(title: viewData.addressTexts.title, info: viewData.addressTexts.info)
-    }()
-    private(set) public lazy var districtView: CepInfoView = {
-        CepInfoView(title: viewData.districtTexts.title, info: viewData.districtTexts.info)
-    }()
-    private(set) public lazy var cityStateView: CepInfoView = {
-        CepInfoView(title:  viewData.cityStateTexts.title, info: viewData.cityStateTexts.info)
-    }()
+    private(set) public lazy var addressView: CepInfoView = .init()
+    private(set) public lazy var districtView: CepInfoView = .init()
+    private(set) public lazy var cityStateView: CepInfoView = .init()
     
-    public init(viewData: CEPDetailsViewData) {
-        self.viewData = viewData
+    public init(viewModel: CEPDetailsViewModel) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) { nil }
@@ -66,8 +74,7 @@ public final class CEPDetailsViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        displayDetails()
-        configureNavigationBar()
+        bindViewModel()
     }
     
     private func setupUI() {
@@ -93,12 +100,26 @@ public final class CEPDetailsViewController: UIViewController {
         ])
     }
     
-    private func displayDetails() {
-        cepTitleLabel.text = viewData.cepText
+    private func bindViewModel() {
+        viewModel.onViewDataUpdated = { [weak self] viewData in
+            DispatchQueue.main.async {
+                self?.updateUI(with: viewData)
+            }
+        }
     }
     
-    private func configureNavigationBar() {
+    private func updateUI(with viewData: CEPDetailsViewData) {
         title = viewData.cepText
+        cepTitleLabel.text = viewData.cepText
+        
+        addressView.titleLabel.text = viewData.addressTexts.title
+        addressView.infoLabel.text = viewData.addressTexts.info
+        
+        districtView.titleLabel.text = viewData.districtTexts.title
+        districtView.infoLabel.text = viewData.districtTexts.info
+        
+        cityStateView.titleLabel.text = viewData.cityStateTexts.title
+        cityStateView.infoLabel.text = viewData.cityStateTexts.info
     }
     
     private func createTitleLabel() -> UILabel {
@@ -118,12 +139,12 @@ public final class CEPDetailsViewController: UIViewController {
 
 
 // MARK: - Preview
-@available(iOS 17.0, *)
-#Preview {
-    CEPDetailsViewController(viewData:
-       CEPDetailsViewData(cepText: "CEP",
-                          addressTexts: InfoStrings(title: "Address", info: "Example Street, Apt 101"),
-                          districtTexts: InfoStrings(title: "District", info: "Example District"),
-                          cityStateTexts: InfoStrings(title: "City", info: "Example City, EX"))
-    )
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//    CEPDetailsViewController(viewData:
+//       CEPDetailsViewData(cepText: "CEP",
+//                          addressTexts: InfoStrings(title: "Address", info: "Example Street, Apt 101"),
+//                          districtTexts: InfoStrings(title: "District", info: "Example District"),
+//                          cityStateTexts: InfoStrings(title: "City", info: "Example City, EX"))
+//    )
+//}

@@ -11,10 +11,9 @@ public final class CepInfoView: UIView {
     private(set) public lazy var titleLabel = UILabel()
     private(set) public lazy var infoLabel = UILabel()
 
-    init(title: String, info: String) {
+    init() {
         super.init(frame: .zero)
         setupViews()
-        configure(with: title, info: info)
         setupConstraints()
     }
 
@@ -47,7 +46,7 @@ public final class CepInfoView: UIView {
         ])
     }
 
-    func configure(with title: String, info: String) {
+    public func configure(with title: String, info: String) {
         titleLabel.text = title
         infoLabel.text = info
     }
