@@ -32,20 +32,18 @@ public struct CEPDetailsViewData: Equatable {
     }
 }
 
-// TODO: move access controls to Composer
-public final class CEPDetailsViewModel {
+final class CEPDetailsViewModel {
     typealias Observer<T> = (T) -> Void
     
     private let model: CEPDetails
     var onViewDataUpdated: Observer<CEPDetailsViewData>?
 
-    public init(model: CEPDetails) {
+    init(model: CEPDetails) {
         self.model = model
-        formatData()
     }
 
-    // Note: Here, in the presentation layer, Localization for the Titles could be added
-    private func formatData() {
+    // Note: Here, in the presentation layer, we could add Localization for the Titles, like "Address", "District" etc.
+    public func formatData() {
         let address = model.complement.isEmpty ? model.street : "\(model.street), \(model.complement)"
         let cityState = "\(model.city), \(model.state)"
         let viewData = CEPDetailsViewData(cepText: model.cep,
@@ -64,9 +62,9 @@ public final class CEPDetailsViewController: UIViewController {
     private(set) public lazy var districtView: CepInfoView = .init()
     private(set) public lazy var cityStateView: CepInfoView = .init()
     
-    public init(viewModel: CEPDetailsViewModel) {
-        super.init(nibName: nil, bundle: nil)
+    init(viewModel: CEPDetailsViewModel) {
         self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) { nil }
@@ -74,7 +72,9 @@ public final class CEPDetailsViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        // Bind and fire viewModel
         bindViewModel()
+        viewModel.formatData()
     }
     
     private func setupUI() {
@@ -108,7 +108,7 @@ public final class CEPDetailsViewController: UIViewController {
         }
     }
     
-    private func updateUI(with viewData: CEPDetailsViewData) {
+    func updateUI(with viewData: CEPDetailsViewData) {
         title = viewData.cepText
         cepTitleLabel.text = viewData.cepText
         
@@ -139,12 +139,26 @@ public final class CEPDetailsViewController: UIViewController {
 
 
 // MARK: - Preview
-//@available(iOS 17.0, *)
-//#Preview {
+@available(iOS 17.0, *)
+#Preview {
+    CEPDetailsUIComposer.detailsComposed(with:
+        CEPDetails(cep: "12345-678",
+                   street: "Example Street",
+                   complement: "Apt 101",
+                   district: "Example District",
+                   city: "Example City",
+                   state: "EX")
+    )
+}
+
 //    CEPDetailsViewController(viewData:
 //       CEPDetailsViewData(cepText: "CEP",
 //                          addressTexts: InfoStrings(title: "Address", info: "Example Street, Apt 101"),
 //                          districtTexts: InfoStrings(title: "District", info: "Example District"),
 //                          cityStateTexts: InfoStrings(title: "City", info: "Example City, EX"))
 //    )
-//}
+
+//let viewData = CEPDetailsViewData(cepText: "CEP: 12345-678",
+//                                  addressTexts: InfoStrings(title: "Address", info: "Example Street, Apt 101"),
+//                                  districtTexts: InfoStrings(title: "District", info: "Example District"),
+//                                  cityStateTexts: InfoStrings(title: "City", info: "Example City, EX"))
