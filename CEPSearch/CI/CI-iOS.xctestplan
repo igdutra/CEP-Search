@@ -14,7 +14,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:CEPSearch.xcodeproj",
         "identifier" : "9253CD5B2B66B17B00FDB13F",
