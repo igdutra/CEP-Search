@@ -7,13 +7,13 @@
 
 import CEPiOS
 
-func makeCEPDetailsViewDataFixture(cepText: String = "CEP: 12345-678",
-                                   addressText: String = "Address: Example Street, Apt 101",
-                                   districtText: String = "District: Example District",
-                                   cityStateText: String = "City/State: Example City, EX"
+func makeCEPDetailsViewDataFixture(cepText: String = "12345-678",
+                                   addressText: String = "Example Street, Apt 101",
+                                   districtText: String = "Example District",
+                                   cityStateText: String = "Example City, EX"
 ) -> CEPDetailsViewData {
     return CEPDetailsViewData(cepText: cepText,
-                              addressText: addressText,
-                              districtText: districtText,
-                              cityStateText: cityStateText)
+                              addressTexts: InfoStrings(title: "Address", info: addressText),
+                              districtTexts:  InfoStrings(title: "District", info: districtText),
+                              cityStateTexts: InfoStrings(title: "City", info: cityStateText))
 }

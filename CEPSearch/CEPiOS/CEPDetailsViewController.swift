@@ -8,18 +8,38 @@
 import UIKit
 import CEPSearch
 
+public struct InfoStrings: Equatable {
+    public let title: String
+    public let info: String
+    
+    public init(title: String, info: String) {
+        self.title = title
+        self.info = info
+    }
+}
+
 public struct CEPDetailsViewData: Equatable {
     public let cepText: String
-    public let addressText: String
-    public let districtText: String
-    public let cityStateText: String
+    public let addressTexts: InfoStrings
+    public let districtTexts: InfoStrings
+    public let cityStateTexts: InfoStrings
     
-    public init(cepText: String, addressText: String, districtText: String, cityStateText: String) {
+    public init(cepText: String, addressTexts: InfoStrings, districtTexts: InfoStrings, cityStateTexts: InfoStrings) {
         self.cepText = cepText
-        self.addressText = addressText
-        self.districtText = districtText
-        self.cityStateText = cityStateText
+        self.addressTexts = addressTexts
+        self.districtTexts = districtTexts
+        self.cityStateTexts = cityStateTexts
     }
+}
+
+final class CEPDetailsViewModel {
+    private let model: CEPDetails
+    
+    init(model: CEPDetails) {
+        self.model = model
+    }
+    
+    
 }
 
 public final class CEPDetailsViewController: UIViewController {
@@ -27,13 +47,13 @@ public final class CEPDetailsViewController: UIViewController {
     
     private(set) public lazy var cepTitleLabel: UILabel = createTitleLabel()
     private(set) public lazy var addressView: CepInfoView = {
-        CepInfoView(title: "Address", info: viewData.addressText)
+        CepInfoView(title: viewData.addressTexts.title, info: viewData.addressTexts.info)
     }()
     private(set) public lazy var districtView: CepInfoView = {
-        CepInfoView(title: "District", info: viewData.districtText)
+        CepInfoView(title: viewData.districtTexts.title, info: viewData.districtTexts.info)
     }()
     private(set) public lazy var cityStateView: CepInfoView = {
-        CepInfoView(title: "City/State", info: viewData.cityStateText)
+        CepInfoView(title:  viewData.cityStateTexts.title, info: viewData.cityStateTexts.info)
     }()
     
     public init(viewData: CEPDetailsViewData) {
@@ -102,8 +122,8 @@ public final class CEPDetailsViewController: UIViewController {
 #Preview {
     CEPDetailsViewController(viewData:
        CEPDetailsViewData(cepText: "CEP",
-                          addressText: "ADDRESS",
-                          districtText: "DISTRICT",
-                          cityStateText: "STATE")
+                          addressTexts: InfoStrings(title: "Address", info: "Example Street, Apt 101"),
+                          districtTexts: InfoStrings(title: "District", info: "Example District"),
+                          cityStateTexts: InfoStrings(title: "City", info: "Example City, EX"))
     )
 }
