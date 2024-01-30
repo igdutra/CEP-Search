@@ -254,9 +254,8 @@
 		9253CD562B66B17B00FDB13F /* CEPiOS */ = {
 			isa = PBXGroup;
 			children = (
-				92469F4C2B66D37E002183D8 /* CEPSearchView.swift */,
-				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
-				92596BC52B690F670021766F /* CEPInfoView.swift */,
+				92596BC72B6924E00021766F /* CEP Search */,
+				92596BC82B6924E90021766F /* CEP Details */,
 			);
 			path = CEPiOS;
 			sourceTree = "<group>";
@@ -279,6 +278,23 @@
 				92E3BB2E2B67BFC8001AA958 /* CI */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		92596BC72B6924E00021766F /* CEP Search */ = {
+			isa = PBXGroup;
+			children = (
+				92469F4C2B66D37E002183D8 /* CEPSearchView.swift */,
+			);
+			path = "CEP Search";
+			sourceTree = "<group>";
+		};
+		92596BC82B6924E90021766F /* CEP Details */ = {
+			isa = PBXGroup;
+			children = (
+				92596BC52B690F670021766F /* CEPInfoView.swift */,
+				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
+			);
+			path = "CEP Details";
 			sourceTree = "<group>";
 		};
 		929235B22B66CA7900BE187B /* Shared Helpers */ = {
