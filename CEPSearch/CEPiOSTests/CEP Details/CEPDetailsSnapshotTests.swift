@@ -7,12 +7,18 @@
 
 import XCTest
 import UIKit
-import CEPiOS
+// For snapshot tests, expose internal interfaces
+@testable import CEPiOS
+import CEPSearch
 
 final class CEPDetailsSnapshotTests: XCTestCase {
 
     func test_cepDetails() {
         let sut = makeSUT()
+        
+        // Override implementation with this direct data, since this is simply testing the rendering
+        sut.loadViewIfNeeded()
+        sut.updateUI(with: makeCEPDetailsViewDataFixture())
         
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "DETAILS_light")
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "DETAILS_dark")
@@ -23,8 +29,8 @@ final class CEPDetailsSnapshotTests: XCTestCase {
 
 private extension CEPDetailsSnapshotTests {
     func makeSUT() -> CEPDetailsViewController {
-        let details = makeCEPDetailsViewDataFixture()
-        let viewController = CEPDetailsViewController(viewData: details)
+        let details = makeCEPDetailsFixture()
+        let viewController = CEPDetailsUIComposer.detailsComposed(with: details)
         return viewController
     }
 }

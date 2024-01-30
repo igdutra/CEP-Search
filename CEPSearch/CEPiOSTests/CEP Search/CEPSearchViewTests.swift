@@ -61,6 +61,7 @@ private extension CEPSearchViewTests {
         trackForMemoryLeaks(spy)
 //        trackForMemoryLeaks(sut)
         // TODO: Search for a good way to add memory leak tracking to SwiftUI View.
+        // It is a struct, but contains reference types inside 
         
         return (sut, spy)
     }

@@ -13,18 +13,18 @@ import CEPiOS
 
 extension CEPDetailsViewController {
     func cepText() -> String? {
-        cepLabel.text
+        cepTitleLabel.text
     }
     
     func addressText() -> String? {
-        addressLabel.text
+        addressView.infoLabel.text
     }
     
     func districtText() -> String? {
-        districtLabel.text
+        districtView.infoLabel.text
     }
     
     func cityStateText() -> String? {
-        cityStateLabel.text
+        cityStateView.infoLabel.text
     }
 }
