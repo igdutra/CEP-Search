@@ -6,25 +6,28 @@
 //
 
 import XCTest
-import CEPiOS // Test the module through its public interface
-import CEPSearch // Test the module through its public interface
+// Test behavior of the module through its public interface
+import CEPiOS
+import CEPSearch
 
 final class CEPDetailsViewControllerTests: XCTestCase {
     
     func test_viewInitialization_rendersProvidedData() {
-//        let viewData = CEPDetailsViewData(cepText: "CEP: 12345-678",
-//                                          addressText: "Address: Example Street, Apt 101",
-//                                          districtText: "District: Example District",
-//                                          cityStateText: "City/State: Example City, EX")
-        let viewData = CEPDetailsViewData(cepText: "CEP: 12345-678",
-                                          addressTexts: InfoStrings(title: "Address", info: "Example Street, Apt 101"),
-                                          districtTexts: InfoStrings(title: "District", info: "Example District"),
-                                          cityStateTexts: InfoStrings(title: "City", info: "Example City, EX"))
+        let details = CEPDetails(cep: "12345-678",
+                                 street: "Example Street",
+                                 complement: "Apt 101",
+                                 district: "Example District",
+                                 city: "Example City",
+                                 state: "EX")
         
-        let sut = makeSUT(viewData: viewData)
+        let viewData = CEPDetailsViewModel.map(details)
+    
+        
+        let sut = makeSUT(details: details)
         
         // Force view lifecycle
-        sut.loadViewIfNeeded()
+        // By manually running the run loop, you give the system a chance to process pending operations that might be running in the main thread
+        sut.view.enforceLayoutCycle()
         
         XCTAssertEqual(sut.cepText(), viewData.cepText)
         XCTAssertEqual(sut.addressText(), viewData.addressTexts.info)
@@ -36,8 +39,8 @@ final class CEPDetailsViewControllerTests: XCTestCase {
 // MARK: - Helpers
 
 private extension CEPDetailsViewControllerTests {
-    func makeSUT(viewData: CEPDetailsViewData) -> CEPDetailsViewController {
-        let viewController = CEPDetailsViewController(viewData: viewData)
+    func makeSUT(details: CEPDetails) -> CEPDetailsViewController {
+        let viewController = CEPDetailsUIComposer.detailsComposed(with: details)
         trackForMemoryLeaks(viewController)
         return viewController
     }
