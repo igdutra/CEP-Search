@@ -31,7 +31,7 @@ public struct CEPDetailsViewData: Equatable {
     }
 }
 
-final class CEPDetailsViewModel {
+public final class CEPDetailsViewModel {
     typealias Observer<T> = (T) -> Void
     
     private let model: CEPDetails
@@ -40,15 +40,19 @@ final class CEPDetailsViewModel {
     init(model: CEPDetails) {
         self.model = model
     }
+    
+    public static func map(_ details: CEPDetails) -> CEPDetailsViewData {
+        let address = details.complement.isEmpty ? details.street : "\(details.street), \(details.complement)"
+        let cityState = "\(details.city), \(details.state)"
+        return CEPDetailsViewData(cepText: details.cep,
+                                  addressTexts: InfoStrings(title: "Address", info: address),
+                                  districtTexts: InfoStrings(title: "District", info: details.district),
+                                  cityStateTexts: InfoStrings(title: "City/State", info: cityState))
+    }
 
     // Note: Here, in the presentation layer, we could add Localization for the Titles, like "Address", "District" etc.
     public func formatData() {
-        let address = model.complement.isEmpty ? model.street : "\(model.street), \(model.complement)"
-        let cityState = "\(model.city), \(model.state)"
-        let viewData = CEPDetailsViewData(cepText: model.cep,
-                                          addressTexts: InfoStrings(title: "Address", info: address),
-                                          districtTexts: InfoStrings(title: "District", info: model.district),
-                                          cityStateTexts: InfoStrings(title: "City/State", info: cityState))
+        let viewData = CEPDetailsViewModel.map(model)
         onViewDataUpdated?(viewData)
     }
 }
