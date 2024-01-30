@@ -39,9 +39,9 @@ final class CEPDetailsViewControllerTests: XCTestCase {
 // MARK: - Helpers
 
 private extension CEPDetailsViewControllerTests {
-    func makeSUT(details: CEPDetails) -> CEPDetailsViewController {
+    func makeSUT(details: CEPDetails, file: StaticString = #filePath, line: UInt = #line) -> CEPDetailsViewController {
         let viewController = CEPDetailsUIComposer.detailsComposed(with: details)
-        trackForMemoryLeaks(viewController)
+        trackForMemoryLeaks(viewController, file: file, line: line)
         return viewController
     }
 }
