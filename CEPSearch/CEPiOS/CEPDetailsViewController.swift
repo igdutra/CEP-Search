@@ -26,9 +26,15 @@ public final class CEPDetailsViewController: UIViewController {
     private let viewData: CEPDetailsViewData
     
     private(set) public lazy var cepTitleLabel: UILabel = createTitleLabel()
-    private(set) public lazy var addressLabel: UILabel = createLabel()
-    private(set) public lazy var districtLabel: UILabel = createLabel()
-    private(set) public lazy var cityStateLabel: UILabel = createLabel()
+    private lazy var addressLabel: CepInfoView = {
+        CepInfoView(title: "Address", info: viewData.addressText)
+    }()
+    private lazy var districtLabel: CepInfoView = {
+        CepInfoView(title: "District", info: viewData.districtText)
+    }()
+    private(set) lazy var cityStateLabel: CepInfoView = {
+        CepInfoView(title: "City/State", info: viewData.cityStateText)
+    }()
     
     public init(viewData: CEPDetailsViewData) {
         self.viewData = viewData
@@ -50,7 +56,7 @@ public final class CEPDetailsViewController: UIViewController {
         
         let stackView = UIStackView(arrangedSubviews: [addressLabel, districtLabel, cityStateLabel])
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
@@ -69,22 +75,10 @@ public final class CEPDetailsViewController: UIViewController {
     
     private func displayDetails() {
         cepTitleLabel.text = viewData.cepText
-        addressLabel.text = viewData.addressText
-        districtLabel.text = viewData.districtText
-        cityStateLabel.text = viewData.cityStateText
     }
     
     private func configureNavigationBar() {
         title = viewData.cepText
-    }
-    
-    private func createLabel() -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
-        label.adjustsFontForContentSizeCategory = true
-        return label
     }
     
     private func createTitleLabel() -> UILabel {

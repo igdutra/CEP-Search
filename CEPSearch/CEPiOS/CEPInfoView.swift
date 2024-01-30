@@ -8,8 +8,8 @@
 import UIKit
 
 final class CepInfoView: UIView {
-    private lazy var titleLabel = UILabel()
-    private lazy var infoLabel = UILabel()
+    private(set) public lazy var titleLabel = UILabel()
+    private(set) public lazy var infoLabel = UILabel()
 
     init(title: String, info: String) {
         super.init(frame: .zero)
@@ -35,7 +35,7 @@ final class CepInfoView: UIView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4), // Fix added space by the different fonts
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor), // Fix added space by the different fonts
             titleLabel.trailingAnchor.constraint(equalTo: infoLabel.trailingAnchor)
         ])
 
