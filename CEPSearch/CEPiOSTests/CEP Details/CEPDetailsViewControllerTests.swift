@@ -21,13 +21,12 @@ final class CEPDetailsViewControllerTests: XCTestCase {
                                  state: "EX")
         
         let viewData = CEPDetailsViewModel.map(details)
-    
         
         let sut = makeSUT(details: details)
         
         // Force view lifecycle
         // By manually running the run loop, you give the system a chance to process pending operations that might be running in the main thread
-        sut.view.enforceLayoutCycle()
+        sut.simulateAppearance()
         
         XCTAssertEqual(sut.cepText(), viewData.cepText)
         XCTAssertEqual(sut.addressText(), viewData.addressTexts.info)
