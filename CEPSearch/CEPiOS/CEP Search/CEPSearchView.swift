@@ -8,30 +8,25 @@
 import SwiftUI
 import CEPSearch
 
-//// MARK: - Container: Contains the reference to the Loader
-//
-//public struct CEPSearchViewContainer: View {
-//    public let cepGetter: CEPGetter
-//    public var placeholderText: String
-//    public var buttonText: String
-//    
-//    public init(cepGetter: CEPGetter, placeholderText: String, buttonText: String) {
-//        self.cepGetter = cepGetter
-//        self.placeholderText = placeholderText
-//        self.buttonText = buttonText
-//    }
-//
-//    public var body: some View {
-//        CEPSearchView(placeholderText: "Digite o CEP",
-//                      buttonText: "Procurar Endereço",
-//                      action: fetchCEPDetails
-//        )
-//    }
-//
-//    private func fetchCEPDetails(cep: String) async {
-// 
-//    }
-//}
+final class CEPSearchViewModel {
+    private var cepGetter: CEPGetter
+    var cep: String = .init()
+    
+    // Note: Retrieve localized values
+    var viewData: CEPSearchViewData = {
+        CEPSearchViewData(placeholderText: "Digite o CEP",
+                          buttonText: "Procurar Endereço")
+    }()
+    
+    init(cepGetter: CEPGetter) {
+        self.cepGetter = cepGetter
+    }
+    
+    func fetchCEPDetails(cep: String) async {
+        let _ = try? await cepGetter.getCEPDetails(for: cep)
+        // TODO: Navigation
+    }
+}
 
 struct CEPSearchViewData {
     var placeholderText: String
@@ -40,7 +35,7 @@ struct CEPSearchViewData {
 
 // MARK: - Pure View: Depend on Data only so it can be used in the preview
 
-struct CEPSearchView: View {
+public struct CEPSearchView: View {
     @Binding var cep: String
     var viewData: CEPSearchViewData
     private var action: (String) async -> Void
@@ -51,15 +46,16 @@ struct CEPSearchView: View {
         self.action = action
     }
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 24) {
             TextField(viewData.placeholderText, text: $cep)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
+            // Could create SwiftUI Component for this Button
+            // And move it to a Design System
             Button(viewData.buttonText) {
                 Task {
-                    print(cep)
                     await action(cep)
                 }
             }
