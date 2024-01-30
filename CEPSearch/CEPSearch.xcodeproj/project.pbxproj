@@ -32,6 +32,7 @@
 		92596BC62B690F670021766F /* CEPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BC52B690F670021766F /* CEPInfoView.swift */; };
 		92596BCA2B6925130021766F /* CEPDetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */; };
 		92596BCC2B6933BC0021766F /* CEPDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */; };
+		92596BCF2B6937A60021766F /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCE2B6937A60021766F /* UIView+TestHelpers.swift */; };
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
 		9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */; };
 		9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */; };
@@ -99,6 +100,7 @@
 		92596BC52B690F670021766F /* CEPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPInfoView.swift; sourceTree = "<group>"; };
 		92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsUIComposer.swift; sourceTree = "<group>"; };
 		92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewModel.swift; sourceTree = "<group>"; };
+		92596BCE2B6937A60021766F /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
 		929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewControllerTests.swift; sourceTree = "<group>"; };
@@ -297,8 +299,8 @@
 			children = (
 				92596BC52B690F670021766F /* CEPInfoView.swift */,
 				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
-				92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */,
 				92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */,
+				92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */,
 			);
 			path = "CEP Details";
 			sourceTree = "<group>";
@@ -309,6 +311,7 @@
 				929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */,
 				929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */,
 				92D83E042B67C379006A952D /* Fixtures-iOS.swift */,
+				92596BCE2B6937A60021766F /* UIView+TestHelpers.swift */,
 			);
 			path = "Shared Helpers";
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				92D83E052B67C379006A952D /* Fixtures-iOS.swift in Sources */,
 				929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */,
 				92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */,
+				92596BCF2B6937A60021766F /* UIView+TestHelpers.swift in Sources */,
 				92469F622B66DDB1002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
