@@ -13,7 +13,7 @@ import CEPiOS
 
 extension CEPDetailsViewController {
     func cepText() -> String? {
-        cepLabel.text
+        cepTitleLabel.text
     }
     
     func addressText() -> String? {
