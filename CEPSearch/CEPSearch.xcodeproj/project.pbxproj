@@ -304,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				92596BC52B690F670021766F /* CEPInfoView.swift */,
-				92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */,
 				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
 				92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */,
 			);
@@ -331,6 +330,7 @@
 		928150F92B69C2390031E8FE /* CEP Details */ = {
 			isa = PBXGroup;
 			children = (
+				92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */,
 			);
 			path = "CEP Details";
 			sourceTree = "<group>";
