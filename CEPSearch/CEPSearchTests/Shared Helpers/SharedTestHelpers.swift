@@ -7,6 +7,7 @@
 
 import Foundation
 import CEPSearch
+import XCTest
 
 // MARK: - Free Funcs
 
@@ -42,5 +43,15 @@ func makeDetails() -> (model: CEPDetails, data: Data) {
 extension HTTPURLResponse {
     convenience init(statusCode: Int) {
         self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+    }
+}
+
+// MARK: - Memory Leak Tracking
+
+extension XCTestCase {
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
     }
 }

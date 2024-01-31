@@ -24,8 +24,6 @@
 		92469F502B66D755002183D8 /* CEPSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */; };
 		92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */; };
-		92469F602B66DDAF002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */; };
-		92469F622B66DDB1002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */; };
 		92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */; };
 		92469F6A2B66E874002183D8 /* Fixtures-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F682B66E74C002183D8 /* Fixtures-Shared.swift */; };
 		92469F6B2B66E875002183D8 /* Fixtures-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F682B66E74C002183D8 /* Fixtures-Shared.swift */; };
@@ -39,15 +37,12 @@
 		9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */; };
 		92596BC62B690F670021766F /* CEPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BC52B690F670021766F /* CEPInfoView.swift */; };
 		92596BCA2B6925130021766F /* CEPDetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */; };
-		92596BCF2B6937A60021766F /* UIViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCE2B6937A60021766F /* UIViewController+TestHelpers.swift */; };
 		928150F42B69C0490031E8FE /* CEPSearchUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150F32B69C0490031E8FE /* CEPSearchUIComposer.swift */; };
 		928150FB2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */; };
 		928150FC2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */; };
 		928150FF2B69D8C80031E8FE /* RemoteCEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */; };
 		928151012B69D9750031E8FE /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928151002B69D9750031E8FE /* HTTPClient.swift */; };
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
-		9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */; };
-		9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */; };
 		92D83E052B67C379006A952D /* Fixtures-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D83E042B67C379006A952D /* Fixtures-iOS.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +97,6 @@
 		92469F4C2B66D37E002183D8 /* CEPSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchView.swift; sourceTree = "<group>"; };
 		92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewTests.swift; sourceTree = "<group>"; };
 		92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterSpy.swift; sourceTree = "<group>"; };
-		92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsSnapshotTests.swift; sourceTree = "<group>"; };
 		92469F682B66E74C002183D8 /* Fixtures-Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fixtures-Shared.swift"; sourceTree = "<group>"; };
 		92469F6C2B66E8C0002183D8 /* DETAILS_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DETAILS_dark.png; sourceTree = "<group>"; };
@@ -118,7 +112,6 @@
 		92596BC52B690F670021766F /* CEPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPInfoView.swift; sourceTree = "<group>"; };
 		92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsUIComposer.swift; sourceTree = "<group>"; };
 		92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewModel.swift; sourceTree = "<group>"; };
-		92596BCE2B6937A60021766F /* UIViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		928150F32B69C0490031E8FE /* CEPSearchUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchUIComposer.swift; sourceTree = "<group>"; };
 		928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewModel.swift; sourceTree = "<group>"; };
 		928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
@@ -126,8 +119,6 @@
 		928151002B69D9750031E8FE /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
-		9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewControllerTests.swift; sourceTree = "<group>"; };
-		9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CEPDetailsViewController+DSLs.swift"; sourceTree = "<group>"; };
 		92D83E042B67C379006A952D /* Fixtures-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fixtures-iOS.swift"; sourceTree = "<group>"; };
 		92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-iOS.xctestplan"; sourceTree = "<group>"; };
 		92E9F2992B67C2DD005D2E96 /* CI-macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-macOS.xctestplan"; sourceTree = "<group>"; };
@@ -243,7 +234,6 @@
 		92469F5D2B66DD87002183D8 /* Shared Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */,
 				92469F682B66E74C002183D8 /* Fixtures-Shared.swift */,
 				928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */,
 			);
@@ -253,10 +243,8 @@
 		92469F632B66E655002183D8 /* CEP Details */ = {
 			isa = PBXGroup;
 			children = (
-				9293D6E92B66F8F50099EAC3 /* Helpers */,
 				92469F672B66E67C002183D8 /* snapshots */,
 				92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */,
-				9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */,
 			);
 			path = "CEP Details";
 			sourceTree = "<group>";
@@ -409,17 +397,8 @@
 				929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */,
 				929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */,
 				92D83E042B67C379006A952D /* Fixtures-iOS.swift */,
-				92596BCE2B6937A60021766F /* UIViewController+TestHelpers.swift */,
 			);
 			path = "Shared Helpers";
-			sourceTree = "<group>";
-		};
-		9293D6E92B66F8F50099EAC3 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		92E3BB2E2B67BFC8001AA958 /* CI */ = {
@@ -633,7 +612,6 @@
 				921C538B2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift in Sources */,
 				921C538F2B6A62DE006E85ED /* CEPGetterEndpointTests.swift in Sources */,
 				9253CD432B66B0ED00FDB13F /* RemoteCEPGetterTests.swift in Sources */,
-				92469F602B66DDAF002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				92469F6A2B66E874002183D8 /* Fixtures-Shared.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,10 +632,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */,
 				92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */,
 				92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */,
-				9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */,
 				928150FC2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */,
 				92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */,
 				92469F6B2B66E875002183D8 /* Fixtures-Shared.swift in Sources */,
@@ -665,8 +641,6 @@
 				92D83E052B67C379006A952D /* Fixtures-iOS.swift in Sources */,
 				929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */,
 				92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */,
-				92596BCF2B6937A60021766F /* UIViewController+TestHelpers.swift in Sources */,
-				92469F622B66DDB1002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

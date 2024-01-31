@@ -1,8 +1,8 @@
 //
 //  XCTestCase+MemoryLeakTracking.swift
-//  CEPiOS
+//  CEPAppTests
 //
-//  Created by Ivo on 28/01/24.
+//  Created by Ivo on 31/01/24.
 //
 
 import XCTest
