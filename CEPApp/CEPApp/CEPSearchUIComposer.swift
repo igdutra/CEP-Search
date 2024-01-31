@@ -22,6 +22,7 @@ public enum CEPSearchUIComposer {
         
         return CEPSearchView(cep: binding,
                              viewData: viewModel.viewData,
-                             action: viewModel.fetchCEPDetails)
+                             action: viewModel.fetchCEPDetails,
+                             onButtonPressed: { })
     }
 }

@@ -14,11 +14,13 @@ public struct CEPSearchView: View {
     @Binding var cep: String
     var viewData: CEPSearchViewData
     private var action: (String) async -> Void
+    private var onButtonPressed: () -> Void
     
-    public init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void) {
+    public init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void, onButtonPressed: @escaping () -> Void) {
         self._cep = cep
         self.viewData = viewData
         self.action = action
+        self.onButtonPressed = onButtonPressed
     }
 
     public var body: some View {
@@ -32,6 +34,7 @@ public struct CEPSearchView: View {
             Button(viewData.buttonText) {
                 Task {
                     await action(cep)
+                    onButtonPressed()
                 }
             }
             .padding()
@@ -58,6 +61,8 @@ struct CEPSearchView_Previews: PreviewProvider {
                                                       buttonText: "Procurar Endereço"),
                           action: { cep in
                 print("CEP typed: ", cep)
+            },   onButtonPressed: {
+                print("Button was pressed")
             })
         }
     }

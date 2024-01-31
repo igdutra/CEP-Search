@@ -29,7 +29,8 @@ private extension CEPSearchViewSnapshotTests {
                                          buttonText: "Procurar Endereço")
         let view = CEPSearchView(cep: .constant(""),
                                  viewData: viewData,
-                                 action: { _ in })
+                                 action: { _ in },
+                                 onButtonPressed: { })
 
         let hostingController = UIHostingController(rootView: view)
         return hostingController
