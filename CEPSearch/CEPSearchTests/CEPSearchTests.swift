@@ -6,12 +6,31 @@
 //
 
 import XCTest
-@testable import CEPSearch
+import CEPSearch
 
-final class CEPSearchTests: XCTestCase {
+final class RemoteCEPGetter {
+    let client: HTTPClient
+    
+    init(client: HTTPClient) {
+        self.client = client
+    }
+}
 
+final class HTTPClient {
+    // Note: ReceivedMessage is the method signature
+    enum ReceivedMessage: Equatable {
+        case load(URL)
+    }
+    
+    private(set) var receivedMessages = [ReceivedMessage]()
+}
 
-    func test_example_macOSTest() {
-        print("Placeholder test")
+final class RemoteCEPGetterTests: XCTestCase {
+
+    func test_init_doesNotRequestDataFromURL() {
+        let client = HTTPClient()
+        let _ = RemoteCEPGetter(client: client)
+        
+        XCTAssert(client.receivedMessages.isEmpty)
     }
 }
