@@ -10,11 +10,22 @@ import CEPSearch
 
 // MARK: - Pure View: Depend on Data only so it can be used in the preview
 
+struct TestView: View {
+    var body: some View {
+        Text("Hello, SwiftUI!")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .foregroundColor(.blue)
+    }
+}
+
 public struct CEPSearchView: View {
     @Binding var cep: String
     var viewData: CEPSearchViewData
     private var action: (String) async -> Void
     private var onButtonPressed: () -> Void
+
+    @State private var shouldPresentNextScreen: Bool = false
     
     public init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void, onButtonPressed: @escaping () -> Void) {
         self._cep = cep
@@ -24,25 +35,31 @@ public struct CEPSearchView: View {
     }
 
     public var body: some View {
-        VStack(spacing: 24) {
-            TextField(viewData.placeholderText, text: $cep)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-            // Could create SwiftUI Component for this Button
-            // And move it to a Design System
-            Button(viewData.buttonText) {
-                Task {
-                    await action(cep)
-                    onButtonPressed()
+        NavigationStack {
+            VStack(spacing: 24) {
+                TextField(viewData.placeholderText, text: $cep)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                // Could create SwiftUI Component for this Button
+                // And move it to a Design System
+                Button(viewData.buttonText) {
+                    Task {
+                        await action(cep)
+                        onButtonPressed()
+                        shouldPresentNextScreen = true
+                    }
                 }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(8)
             }
             .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
+            .navigationDestination(isPresented: $shouldPresentNextScreen) {
+                TestView()
+            }
         }
-        .padding()
     }
 }
 
