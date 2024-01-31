@@ -13,20 +13,18 @@ import CEPSearch
 public struct CEPSearchView: View {
     @Binding var cep: String
     var viewData: CEPSearchViewData
-    private var action: (String) async -> CEPDetails?
+    private var action: (String) async -> Void
     // TODO: Search for another type erasures
-    private var nextViewToPresent: () -> AnyView
+//    private var nextViewToPresent: () -> AnyView
 
     @State private var shouldPresentNextScreen: Bool = false
     
     public init(cep: Binding<String>,
                 viewData: CEPSearchViewData,
-                action: @escaping (String) async -> CEPDetails?,
-                nextViewToPresent: @escaping () -> AnyView) {
+                action: @escaping (String) async -> Void) {
         self._cep = cep
         self.viewData = viewData
         self.action = action
-        self.nextViewToPresent = nextViewToPresent
     }
 
     public var body: some View {
@@ -41,8 +39,8 @@ public struct CEPSearchView: View {
                 Button(viewData.buttonText) {
                     Task {
                         // Move presentation logic to viewModel
-                        print(await action(cep) as Any)
-                        shouldPresentNextScreen = true
+                        await action(cep)
+                        shouldPresentNextScreen = true // Move to viewModel through bidning
                     }
                 }
                 .padding()
@@ -53,7 +51,7 @@ public struct CEPSearchView: View {
             .padding()
             .navigationDestination(isPresented: $shouldPresentNextScreen,
                                    destination: {
-                nextViewToPresent()
+                EmptyView()
             })
         }
     }
@@ -70,22 +68,12 @@ struct CEPSearchView_Previews: PreviewProvider {
     struct CEPSearchViewContainer: View {
         @State private var cep: String = ""
         
-        let details = CEPDetails(cep: "12345-678",
-                                 street: "Example Street",
-                                 complement: "Apt 101",
-                                 district: "Example District",
-                                 city: "Example City",
-                                 state: "EX")
-        
         var body: some View {
             CEPSearchView(cep: $cep,
                           viewData: CEPSearchViewData(placeholderText: "Digite o CEP",
                                                       buttonText: "Procurar Endereço"),
                           action: { cep in
                 print("CEP typed: ", cep)
-                return details
-            },   nextViewToPresent: {
-                AnyView(TestView())
             })
         }
     }

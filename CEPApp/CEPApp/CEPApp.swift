@@ -37,34 +37,8 @@ struct CEPApp: App {
 
 // MARK: - Helpers
 private extension CEPApp {
-//    func navigateToDetails(_ details: CEPDetails) -> AnyView {
-    static func navigateToDetails() -> AnyView {
-//        let controller = CEPDetailsUIComposer.detailsComposed(with: details)
-        let swiftUIView = CEPDetailsView()
+    static func navigateToDetails(_ details: CEPDetails) -> AnyView {
+        let swiftUIView = CEPDetailsSwiftUIView(details: details)
         return AnyView(swiftUIView)
-    }
-}
-
-struct CEPDetailsViewRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = CEPDetailsViewController
-    
-    func makeUIViewController(context: Context) -> CEPDetailsViewController {
-        return CEPDetailsViewController(viewModel: CEPDetailsViewModel(model: CEPDetails(cep: "",
-                                                                                         street: "",
-                                                                                         complement: "",
-                                                                                         district: "",
-                                                                                         city: "",
-                                                                                         state: "")))
-    }
-    
-    func updateUIViewController(_ uiViewController: CEPDetailsViewController, context: Context) {
-    }
-}
-
-struct CEPDetailsView: View {
-    var body: some View {
-        let wrappedViewController = CEPDetailsViewRepresentable()
-        
-        return AnyView(wrappedViewController)
     }
 }

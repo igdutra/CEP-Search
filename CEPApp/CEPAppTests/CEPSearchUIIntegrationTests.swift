@@ -57,7 +57,7 @@ private extension CEPSearchViewTests {
     func makeSUT() -> (sut: CEPSearchView, spy: CEPGetterSpy) {
         let spy = CEPGetterSpy()
         let sut = CEPSearchUIComposer.composeView(cepGetter: CEPGetterSpy(), 
-                                                  nextViewToPresent: { AnyView(EmptyView()) })
+                                                  nextViewToPresent: { _ in AnyView(EmptyView()) })
         
         trackForMemoryLeaks(spy)
         // trackForMemoryLeaks(sut)

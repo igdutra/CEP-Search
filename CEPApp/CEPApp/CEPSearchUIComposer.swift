@@ -11,8 +11,9 @@ import CEPiOS
 
 public enum CEPSearchUIComposer {
     public static func composeView(cepGetter: CEPGetter,
-                                   nextViewToPresent: @escaping () -> AnyView) -> CEPSearchView {
-        let viewModel = CEPSearchViewModel(cepGetter: cepGetter)
+                                   nextViewToPresent: @escaping (CEPDetails) -> AnyView) -> CEPSearchView {
+        let viewModel = CEPSearchViewModel(cepGetter: cepGetter,
+                                           nextViewToPresent: nextViewToPresent)
         
         // Bind the ViewModel and the View
         // Keeping ViewModel agnostic
@@ -23,7 +24,6 @@ public enum CEPSearchUIComposer {
         
         return CEPSearchView(cep: binding,
                              viewData: viewModel.viewData,
-                             action: viewModel.fetchCEPDetails,
-                             nextViewToPresent: nextViewToPresent)
+                             action: viewModel.fetchCEPDetails)
     }
 }
