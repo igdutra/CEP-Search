@@ -22,6 +22,12 @@ public enum CEPSearchUIComposer {
             set: { viewModel.cep = $0 }
         )
         
+        // Note: at latest point in time, I was not able to get this binding to work as intended
+//        let shouldPresentNextScreenBinding = Binding<Bool>(
+//            get: { viewModel.shouldPresentNextScreen },
+//            set: { viewModel.shouldPresentNextScreen = $0 }
+//        )
+        
         return CEPSearchView(cep: binding,
                              viewData: viewModel.viewData,
                              action: viewModel.fetchCEPDetails)
