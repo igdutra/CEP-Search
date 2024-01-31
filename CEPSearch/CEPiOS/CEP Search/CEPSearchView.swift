@@ -10,28 +10,23 @@ import CEPSearch
 
 // MARK: - Pure View: Depend on Data only so it can be used in the preview
 
-struct TestView: View {
-    var body: some View {
-        Text("Hello, SwiftUI!")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .foregroundColor(.blue)
-    }
-}
-
 public struct CEPSearchView: View {
     @Binding var cep: String
     var viewData: CEPSearchViewData
     private var action: (String) async -> Void
-    private var onButtonPressed: () -> Void
+    // TODO: Search for another type erasures
+    private var nextViewToPresent: () -> AnyView
 
     @State private var shouldPresentNextScreen: Bool = false
     
-    public init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void, onButtonPressed: @escaping () -> Void) {
+    public init(cep: Binding<String>,
+                viewData: CEPSearchViewData,
+                action: @escaping (String) async -> Void,
+                nextViewToPresent: @escaping () -> AnyView) {
         self._cep = cep
         self.viewData = viewData
         self.action = action
-        self.onButtonPressed = onButtonPressed
+        self.nextViewToPresent = nextViewToPresent
     }
 
     public var body: some View {
@@ -45,8 +40,8 @@ public struct CEPSearchView: View {
                 // And move it to a Design System
                 Button(viewData.buttonText) {
                     Task {
+                        // Move presentation logic to viewModel
                         await action(cep)
-                        onButtonPressed()
                         shouldPresentNextScreen = true
                     }
                 }
@@ -56,14 +51,15 @@ public struct CEPSearchView: View {
                 .cornerRadius(8)
             }
             .padding()
-            .navigationDestination(isPresented: $shouldPresentNextScreen) {
-                TestView()
-            }
+            .navigationDestination(isPresented: $shouldPresentNextScreen,
+                                   destination: {
+                nextViewToPresent()
+            })
         }
     }
 }
 
-// MARK: - Previews
+// MARK: - Previews - Testing Only
 
 // Note: Create a Container for the Preview so we can preview correctly in a live preview how the TextField works
 struct CEPSearchView_Previews: PreviewProvider {
@@ -78,9 +74,18 @@ struct CEPSearchView_Previews: PreviewProvider {
                                                       buttonText: "Procurar Endereço"),
                           action: { cep in
                 print("CEP typed: ", cep)
-            },   onButtonPressed: {
-                print("Button was pressed")
+            },   nextViewToPresent: {
+                AnyView(TestView())
             })
+        }
+    }
+    
+    struct TestView: View {
+        var body: some View {
+            Text("Hello, SwiftUI!!!!!!!!! ")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(.blue)
         }
     }
 

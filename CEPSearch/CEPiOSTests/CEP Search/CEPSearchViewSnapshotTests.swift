@@ -30,7 +30,7 @@ private extension CEPSearchViewSnapshotTests {
         let view = CEPSearchView(cep: .constant(""),
                                  viewData: viewData,
                                  action: { _ in },
-                                 onButtonPressed: { })
+                                 nextViewToPresent: { EmptyView() })
 
         let hostingController = UIHostingController(rootView: view)
         return hostingController
