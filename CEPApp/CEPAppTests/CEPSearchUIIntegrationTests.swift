@@ -7,6 +7,7 @@
 
 import XCTest
 import CEPiOS // Test the module through its public interface
+@testable import CEPApp // The Compositon Root can be @testable
 
 /* NOTE:
  
@@ -55,12 +56,9 @@ private extension CEPSearchViewTests {
     func makeSUT() -> (sut: CEPSearchView, spy: CEPGetterSpy) {
         let spy = CEPGetterSpy()
         let sut = CEPSearchUIComposer.composeView(cepGetter: CEPGetterSpy())
-//        let sut = CEPSearchViewContainer(cepGetter: spy,
-//                                         placeholderText: .init(),
-//                                         buttonText: .init())
         
         trackForMemoryLeaks(spy)
-//        trackForMemoryLeaks(sut)
+        // trackForMemoryLeaks(sut)
         // TODO: Search for a good way to add memory leak tracking to SwiftUI View.
         // It is a struct, but contains reference types inside 
         

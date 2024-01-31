@@ -64,6 +64,7 @@
 		9220879A2B6AAA6B00AA9D44 /* UIViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		923493F12B6AB5AF0063632F /* CEPSearchUIComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEPSearchUIComposer.swift; sourceTree = "<group>"; };
 		923493F32B6AB5CD0063632F /* CEPDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsUIComposer.swift; sourceTree = "<group>"; };
+		923493F82B6AB7EF0063632F /* CEPApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CEPApp.xctestplan; path = /Users/ivo/Desktop/CEPSearch/CEPApp/CEPAppTests/CEPApp.xctestplan; sourceTree = "<absolute>"; };
 		92F1A6672B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchUIIntegrationTests.swift; sourceTree = "<group>"; };
 		92F1A6692B6AB19300AE6736 /* CEPGetterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +130,7 @@
 		9220876C2B6AA04200AA9D44 /* CEPAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				923493F82B6AB7EF0063632F /* CEPApp.xctestplan */,
 				922087952B6AA8AA00AA9D44 /* Helpers */,
 				92F1A6672B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift */,
 				922087922B6AA88100AA9D44 /* CEPDetailsUIIntegrationTests.swift */,

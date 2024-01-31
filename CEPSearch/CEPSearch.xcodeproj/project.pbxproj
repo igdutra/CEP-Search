@@ -115,8 +115,6 @@
 		9297268D2B6AAFF700E61CFF /* CEPSearch.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CEPSearch.xctestplan; sourceTree = "<group>"; };
 		9297268F2B6AB06F00E61CFF /* CEPiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CEPiOS.xctestplan; sourceTree = "<group>"; };
 		92D83E042B67C379006A952D /* Fixtures-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fixtures-iOS.swift"; sourceTree = "<group>"; };
-		92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-iOS.xctestplan"; sourceTree = "<group>"; };
-		92E9F2992B67C2DD005D2E96 /* CI-macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-macOS.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,7 +318,6 @@
 			children = (
 				9253CD412B66B0ED00FDB13F /* CEPSearchTests */,
 				9253CD602B66B17B00FDB13F /* CEPiOSTests */,
-				92E3BB2E2B67BFC8001AA958 /* CI */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -384,15 +381,6 @@
 				92D83E042B67C379006A952D /* Fixtures-iOS.swift */,
 			);
 			path = "Shared Helpers";
-			sourceTree = "<group>";
-		};
-		92E3BB2E2B67BFC8001AA958 /* CI */ = {
-			isa = PBXGroup;
-			children = (
-				92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */,
-				92E9F2992B67C2DD005D2E96 /* CI-macOS.xctestplan */,
-			);
-			path = CI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

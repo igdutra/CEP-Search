@@ -7,4 +7,7 @@
    <FileRef
       location = "container:CEPApp.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:/Users/ivo/Desktop/CEPSearch/CEPApp/CEPAppTests/CEPApp.xctestplan">
+   </FileRef>
 </Workspace>

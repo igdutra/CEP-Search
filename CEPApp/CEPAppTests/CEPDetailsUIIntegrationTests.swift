@@ -9,6 +9,7 @@ import XCTest
 // Test behavior of the module through its public interface
 import CEPiOS
 import CEPSearch
+@testable import CEPApp
 
 final class CEPDetailsUIIntegrationTests: XCTestCase {
     
