@@ -10,7 +10,7 @@ import CEPSearch
 import CEPiOS
 
 @main
-struct CEPAppApp: App {
+struct CEPApp: App {
     
     let searchView: CEPSearchView
     

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9220875C2B6AA04100AA9D44 /* CEPAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220875B2B6AA04100AA9D44 /* CEPAppApp.swift */; };
+		9220875C2B6AA04100AA9D44 /* CEPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220875B2B6AA04100AA9D44 /* CEPApp.swift */; };
 		922087602B6AA04200AA9D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9220875F2B6AA04200AA9D44 /* Assets.xcassets */; };
 		922087642B6AA04200AA9D44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922087632B6AA04200AA9D44 /* Preview Assets.xcassets */; };
 		9220876E2B6AA04200AA9D44 /* CEPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220876D2B6AA04200AA9D44 /* CEPAppTests.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		922087582B6AA04100AA9D44 /* CEPApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEPApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9220875B2B6AA04100AA9D44 /* CEPAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPAppApp.swift; sourceTree = "<group>"; };
+		9220875B2B6AA04100AA9D44 /* CEPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPApp.swift; sourceTree = "<group>"; };
 		9220875F2B6AA04200AA9D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		922087612B6AA04200AA9D44 /* CEPApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CEPApp.entitlements; sourceTree = "<group>"; };
 		922087632B6AA04200AA9D44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		9220875A2B6AA04100AA9D44 /* CEPApp */ = {
 			isa = PBXGroup;
 			children = (
-				9220875B2B6AA04100AA9D44 /* CEPAppApp.swift */,
+				9220875B2B6AA04100AA9D44 /* CEPApp.swift */,
 				9220875F2B6AA04200AA9D44 /* Assets.xcassets */,
 				922087612B6AA04200AA9D44 /* CEPApp.entitlements */,
 				922087622B6AA04200AA9D44 /* Preview Content */,
@@ -230,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9220875C2B6AA04100AA9D44 /* CEPAppApp.swift in Sources */,
+				9220875C2B6AA04100AA9D44 /* CEPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
