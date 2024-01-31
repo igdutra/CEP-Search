@@ -30,7 +30,8 @@ final class CEPDetailsSnapshotTests: XCTestCase {
 private extension CEPDetailsSnapshotTests {
     func makeSUT() -> CEPDetailsViewController {
         let details = makeCEPDetailsFixture()
-        let viewController = CEPDetailsUIComposer.detailsComposed(with: details)
+        let viewModel = CEPDetailsViewModel(model: details)
+        let viewController = CEPDetailsViewController(viewModel: viewModel)
         return viewController
     }
 }

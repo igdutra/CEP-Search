@@ -16,7 +16,7 @@ public final class CEPDetailsViewController: UIViewController {
     private(set) public lazy var districtView: CepInfoView = .init()
     private(set) public lazy var cityStateView: CepInfoView = .init()
     
-    init(viewModel: CEPDetailsViewModel) {
+    public init(viewModel: CEPDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -91,16 +91,16 @@ public final class CEPDetailsViewController: UIViewController {
     }
 }
 
-
-// MARK: - Preview
-@available(iOS 17.0, *)
-#Preview {
-    CEPDetailsUIComposer.detailsComposed(with:
-        CEPDetails(cep: "12345-678",
-                   street: "Example Street",
-                   complement: "Apt 101",
-                   district: "Example District",
-                   city: "Example City",
-                   state: "EX")
-    )
-}
+// Comment out Preview since Composer was moved to the App Target
+//// MARK: - Preview
+//@available(iOS 17.0, *)
+//#Preview {
+//    CEPDetailsUIComposer.detailsComposed(with:
+//        CEPDetails(cep: "12345-678",
+//                   street: "Example Street",
+//                   complement: "Apt 101",
+//                   district: "Example District",
+//                   city: "Example City",
+//                   state: "EX")
+//    )
+//}

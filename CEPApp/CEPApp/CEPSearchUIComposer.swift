@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CEPSearch
+import CEPiOS
 
 public enum CEPSearchUIComposer {
     public static func composeView(cepGetter: CEPGetter) -> CEPSearchView {

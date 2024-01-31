@@ -7,6 +7,7 @@
 
 import Foundation
 import CEPSearch
+import CEPiOS
 
 // Note: Exposing the public initializer through this composer, both viewModel and controllers can remain internal types
 public enum CEPDetailsUIComposer {
