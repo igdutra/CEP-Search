@@ -10,7 +10,8 @@ import CEPSearch
 import CEPiOS
 
 public enum CEPSearchUIComposer {
-    public static func composeView(cepGetter: CEPGetter) -> CEPSearchView {
+    public static func composeView(cepGetter: CEPGetter,
+                                   nextViewToPresent: @escaping () -> AnyView) -> CEPSearchView {
         let viewModel = CEPSearchViewModel(cepGetter: cepGetter)
         
         // Bind the ViewModel and the View
@@ -23,6 +24,6 @@ public enum CEPSearchUIComposer {
         return CEPSearchView(cep: binding,
                              viewData: viewModel.viewData,
                              action: viewModel.fetchCEPDetails,
-                             nextViewToPresent: { AnyView(EmptyView())})
+                             nextViewToPresent: nextViewToPresent)
     }
 }
