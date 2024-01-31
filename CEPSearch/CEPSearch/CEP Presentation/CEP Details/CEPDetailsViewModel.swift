@@ -36,10 +36,10 @@ public struct CEPDetailsViewData: Equatable {
 // MARK: - ViewModel
 
 public final class CEPDetailsViewModel {
-    typealias Observer<T> = (T) -> Void
+    public typealias Observer<T> = (T) -> Void
     
     private let model: CEPDetails
-    var onViewDataUpdated: Observer<CEPDetailsViewData>?
+    public var onViewDataUpdated: Observer<CEPDetailsViewData>?
 
     public init(model: CEPDetails) {
         self.model = model

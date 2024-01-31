@@ -5,7 +5,7 @@
 //  Created by Ivo on 29/01/24.
 //
 
-import CEPiOS
+import CEPSearch
 
 func makeCEPDetailsViewDataFixture(cepText: String = "12345-678",
                                    addressText: String = "Example Street, Apt 101",
