@@ -8,27 +8,6 @@
 import XCTest
 import CEPSearch
 
-final class RemoteCEPGetter {
-    let client: HTTPClient
-    let url: URL
-    
-    init(url: URL, client: HTTPClient) {
-        self.url = url
-        self.client = client
-    }
-    
-    func getCEPDetails(for cep: String) async throws -> CEPDetails {
-        // TODO: add URL mapper to add CEP
-        do {
-            let (data, response) = try await client.getData(from: url)
-            let details = try JSONDecoder().decode(CEPDetails.self, from: data)
-            return details
-        } catch {
-            throw error
-        }
-    }
-}
-
 final class RemoteCEPGetterTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
