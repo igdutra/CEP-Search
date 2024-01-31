@@ -198,7 +198,6 @@
 		92469F442B66CD16002183D8 /* CEP Search */ = {
 			isa = PBXGroup;
 			children = (
-				92469F592B66DA7C002183D8 /* Helpers */,
 				92469F452B66CD22002183D8 /* snapshots */,
 				92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */,
 			);
@@ -219,13 +218,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		92469F592B66DA7C002183D8 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		92469F5D2B66DD87002183D8 /* Shared Helpers */ = {
