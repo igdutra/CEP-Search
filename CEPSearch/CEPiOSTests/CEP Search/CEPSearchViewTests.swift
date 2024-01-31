@@ -52,11 +52,12 @@ final class CEPSearchViewTests: XCTestCase {
 // MARK: - Helpers
 
 private extension CEPSearchViewTests {
-    func makeSUT() -> (sut: CEPSearchViewContainer, spy: CEPGetterSpy) {
+    func makeSUT() -> (sut: CEPSearchView, spy: CEPGetterSpy) {
         let spy = CEPGetterSpy()
-        let sut = CEPSearchViewContainer(cepGetter: spy,
-                                         placeholderText: .init(),
-                                         buttonText: .init())
+        let sut = CEPSearchUIComposer.composeView(cepGetter: CEPGetterSpy())
+//        let sut = CEPSearchViewContainer(cepGetter: spy,
+//                                         placeholderText: .init(),
+//                                         buttonText: .init())
         
         trackForMemoryLeaks(spy)
 //        trackForMemoryLeaks(sut)

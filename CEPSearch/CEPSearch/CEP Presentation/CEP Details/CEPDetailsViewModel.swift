@@ -5,7 +5,9 @@
 //  Created by Ivo on 30/01/24.
 //
 
-import CEPSearch
+import Foundation
+
+// MARK: - Models
 
 public struct InfoStrings: Equatable {
     public let title: String
@@ -31,13 +33,15 @@ public struct CEPDetailsViewData: Equatable {
     }
 }
 
+// MARK: - ViewModel
+
 public final class CEPDetailsViewModel {
     typealias Observer<T> = (T) -> Void
     
     private let model: CEPDetails
     var onViewDataUpdated: Observer<CEPDetailsViewData>?
 
-    init(model: CEPDetails) {
+    public init(model: CEPDetails) {
         self.model = model
     }
     

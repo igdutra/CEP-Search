@@ -8,46 +8,28 @@
 import SwiftUI
 import CEPSearch
 
-// MARK: - Container: Contains the reference to the Loader
+// MARK: - Pure View: Depend on Data only so it can be used in the preview
 
-public struct CEPSearchViewContainer: View {
-    public let cepGetter: CEPGetter
-    public var placeholderText: String
-    public var buttonText: String
+public struct CEPSearchView: View {
+    @Binding var cep: String
+    var viewData: CEPSearchViewData
+    private var action: (String) async -> Void
     
-    public init(cepGetter: CEPGetter, placeholderText: String, buttonText: String) {
-        self.cepGetter = cepGetter
-        self.placeholderText = placeholderText
-        self.buttonText = buttonText
+    init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void) {
+        self._cep = cep
+        self.viewData = viewData
+        self.action = action
     }
 
     public var body: some View {
-        CEPSearchView(placeholderText: "Digite o CEP",
-                      buttonText: "Procurar Endereço",
-                      action: fetchCEPDetails
-        )
-    }
-
-    private func fetchCEPDetails(cep: String) async {
- 
-    }
-}
-
-// MARK: - Pure View: Depend on Data only so it can be used in the preview
-
-struct CEPSearchView: View {
-    @State private var cep: String = ""
-    var placeholderText: String
-    var buttonText: String
-    var action: (String) async -> Void
-
-    var body: some View {
         VStack(spacing: 24) {
-            TextField(placeholderText, text: $cep)
+            TextField(viewData.placeholderText, text: $cep)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
-            Button(buttonText) {
+            // Could create SwiftUI Component for this Button
+            // And move it to a Design System
+            Button(viewData.buttonText) {
                 Task {
                     await action(cep)
                 }
@@ -61,8 +43,26 @@ struct CEPSearchView: View {
     }
 }
 
-// MARK: - Preview
+// MARK: - Previews
 
-#Preview {
-    CEPSearchView(placeholderText: "Digite o CEP", buttonText: "Procurar Endereço", action: { _ in })
+// Note: Create a Container for the Preview so we can preview correctly in a live preview how the TextField works
+struct CEPSearchView_Previews: PreviewProvider {
+    // Nested Struct capable of maintaining its own state.
+    // It's not limited by the static context of the PreviewProvider
+    struct CEPSearchViewContainer: View {
+        @State private var cep: String = ""
+
+        var body: some View {
+            CEPSearchView(cep: $cep,
+                          viewData: CEPSearchViewData(placeholderText: "Digite o CEP",
+                                                      buttonText: "Procurar Endereço"),
+                          action: { cep in
+                print("CEP typed: ", cep)
+            })
+        }
+    }
+
+    static var previews: some View {
+        CEPSearchViewContainer()
+    }
 }

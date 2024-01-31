@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921C538B2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C538A2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift */; };
+		921C538C2B6A50D4006E85ED /* CEPDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */; };
+		921C538D2B6A50ED006E85ED /* CEPSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */; };
+		921C538F2B6A62DE006E85ED /* CEPGetterEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C538E2B6A62DE006E85ED /* CEPGetterEndpointTests.swift */; };
+		921C53912B6A6374006E85ED /* CEPGetterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */; };
+		921C53932B6A639F006E85ED /* RemoteCEPGetterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */; };
+		921C53962B6A640E006E85ED /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53942B6A63E2006E85ED /* URLSessionHTTPClientTests.swift */; };
+		921C53982B6A64E2006E85ED /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53972B6A64E2006E85ED /* URLSessionHTTPClient.swift */; };
 		92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */; };
 		92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */; };
 		92469F4A2B66CF18002183D8 /* SEARCH_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 92469F462B66CF14002183D8 /* SEARCH_dark.png */; };
@@ -25,14 +33,18 @@
 		92469F6F2B66E8C0002183D8 /* DETAILS_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 92469F6D2B66E8C0002183D8 /* DETAILS_light.png */; };
 		92469F712B66EADE002183D8 /* CEPDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */; };
 		9253CD3E2B66B0ED00FDB13F /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; };
-		9253CD432B66B0ED00FDB13F /* CEPSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */; };
+		9253CD432B66B0ED00FDB13F /* RemoteCEPGetterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD422B66B0ED00FDB13F /* RemoteCEPGetterTests.swift */; };
 		9253CD4F2B66B10500FDB13F /* CEPDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD4E2B66B10500FDB13F /* CEPDetails.swift */; };
 		9253CD5D2B66B17B00FDB13F /* CEPiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD552B66B17B00FDB13F /* CEPiOS.framework */; };
 		9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253CD6D2B66BA1900FDB13F /* CEPGetter.swift */; };
 		92596BC62B690F670021766F /* CEPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BC52B690F670021766F /* CEPInfoView.swift */; };
 		92596BCA2B6925130021766F /* CEPDetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */; };
-		92596BCC2B6933BC0021766F /* CEPDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */; };
 		92596BCF2B6937A60021766F /* UIViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCE2B6937A60021766F /* UIViewController+TestHelpers.swift */; };
+		928150F42B69C0490031E8FE /* CEPSearchUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150F32B69C0490031E8FE /* CEPSearchUIComposer.swift */; };
+		928150FB2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */; };
+		928150FC2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */; };
+		928150FF2B69D8C80031E8FE /* RemoteCEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */; };
+		928151012B69D9750031E8FE /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928151002B69D9750031E8FE /* HTTPClient.swift */; };
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
 		9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */; };
 		9293D6EC2B66F9160099EAC3 /* CEPDetailsViewController+DSLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293D6EA2B66F9030099EAC3 /* CEPDetailsViewController+DSLs.swift */; };
@@ -78,6 +90,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		921C538A2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		921C538E2B6A62DE006E85ED /* CEPGetterEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterEndpointTests.swift; sourceTree = "<group>"; };
+		921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterEndpoint.swift; sourceTree = "<group>"; };
+		921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCEPGetterMapper.swift; sourceTree = "<group>"; };
+		921C53942B6A63E2006E85ED /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		921C53972B6A64E2006E85ED /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewSnapshotTests.swift; sourceTree = "<group>"; };
 		92469F462B66CF14002183D8 /* SEARCH_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_dark.png; sourceTree = "<group>"; };
 		92469F472B66CF14002183D8 /* SEARCH_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_light.png; sourceTree = "<group>"; };
@@ -92,7 +110,7 @@
 		92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewController.swift; sourceTree = "<group>"; };
 		9253CD352B66B0ED00FDB13F /* CEPSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CEPSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD3D2B66B0ED00FDB13F /* CEPSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchTests.swift; sourceTree = "<group>"; };
+		9253CD422B66B0ED00FDB13F /* RemoteCEPGetterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCEPGetterTests.swift; sourceTree = "<group>"; };
 		9253CD4E2B66B10500FDB13F /* CEPDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetails.swift; sourceTree = "<group>"; };
 		9253CD552B66B17B00FDB13F /* CEPiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CEPiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9253CD5C2B66B17B00FDB13F /* CEPiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +119,11 @@
 		92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsUIComposer.swift; sourceTree = "<group>"; };
 		92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewModel.swift; sourceTree = "<group>"; };
 		92596BCE2B6937A60021766F /* UIViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		928150F32B69C0490031E8FE /* CEPSearchUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchUIComposer.swift; sourceTree = "<group>"; };
+		928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewModel.swift; sourceTree = "<group>"; };
+		928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCEPGetter.swift; sourceTree = "<group>"; };
+		928151002B69D9750031E8FE /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		9293D6E62B66EF470099EAC3 /* CEPDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewControllerTests.swift; sourceTree = "<group>"; };
@@ -145,6 +168,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921C53862B6A4F8E006E85ED /* CEP API */ = {
+			isa = PBXGroup;
+			children = (
+				9253CD422B66B0ED00FDB13F /* RemoteCEPGetterTests.swift */,
+				921C53942B6A63E2006E85ED /* URLSessionHTTPClientTests.swift */,
+				921C538E2B6A62DE006E85ED /* CEPGetterEndpointTests.swift */,
+			);
+			path = "CEP API";
+			sourceTree = "<group>";
+		};
+		921C53872B6A4F94006E85ED /* CEP Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				921C538A2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift */,
+			);
+			path = "CEP Presentation";
+			sourceTree = "<group>";
+		};
+		921C53992B6A64E9006E85ED /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */,
+				921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */,
+				921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */,
+			);
+			path = "Use Case";
+			sourceTree = "<group>";
+		};
+		921C539A2B6A64F9006E85ED /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				928151002B69D9750031E8FE /* HTTPClient.swift */,
+				921C53972B6A64E2006E85ED /* URLSessionHTTPClient.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		92469F442B66CD16002183D8 /* CEP Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +245,7 @@
 			children = (
 				92469F5E2B66DD9F002183D8 /* XCTestCase+MemoryLeakTracking.swift */,
 				92469F682B66E74C002183D8 /* Fixtures-Shared.swift */,
+				928150FA2B69C6540031E8FE /* SharedTestHelpers.swift */,
 			);
 			path = "Shared Helpers";
 			sourceTree = "<group>";
@@ -235,6 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				9253CD4D2B66B0F800FDB13F /* CEP Feature */,
+				928150FD2B69D8B90031E8FE /* CEP API */,
+				928150F72B69C2210031E8FE /* CEP Presentation */,
 			);
 			path = CEPSearch;
 			sourceTree = "<group>";
@@ -243,7 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				92469F5D2B66DD87002183D8 /* Shared Helpers */,
-				9253CD422B66B0ED00FDB13F /* CEPSearchTests.swift */,
+				921C53862B6A4F8E006E85ED /* CEP API */,
+				921C53872B6A4F94006E85ED /* CEP Presentation */,
 			);
 			path = CEPSearchTests;
 			sourceTree = "<group>";
@@ -290,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				92469F4C2B66D37E002183D8 /* CEPSearchView.swift */,
+				928150F32B69C0490031E8FE /* CEPSearchUIComposer.swift */,
 			);
 			path = "CEP Search";
 			sourceTree = "<group>";
@@ -299,10 +364,43 @@
 			children = (
 				92596BC52B690F670021766F /* CEPInfoView.swift */,
 				92469F702B66EADE002183D8 /* CEPDetailsViewController.swift */,
-				92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */,
 				92596BC92B6925130021766F /* CEPDetailsUIComposer.swift */,
 			);
 			path = "CEP Details";
+			sourceTree = "<group>";
+		};
+		928150F72B69C2210031E8FE /* CEP Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				928150F82B69C2320031E8FE /* CEP Search */,
+				928150F92B69C2390031E8FE /* CEP Details */,
+			);
+			path = "CEP Presentation";
+			sourceTree = "<group>";
+		};
+		928150F82B69C2320031E8FE /* CEP Search */ = {
+			isa = PBXGroup;
+			children = (
+				928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */,
+			);
+			path = "CEP Search";
+			sourceTree = "<group>";
+		};
+		928150F92B69C2390031E8FE /* CEP Details */ = {
+			isa = PBXGroup;
+			children = (
+				92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */,
+			);
+			path = "CEP Details";
+			sourceTree = "<group>";
+		};
+		928150FD2B69D8B90031E8FE /* CEP API */ = {
+			isa = PBXGroup;
+			children = (
+				921C53992B6A64E9006E85ED /* Use Case */,
+				921C539A2B6A64F9006E85ED /* Infrastructure */,
+			);
+			path = "CEP API";
 			sourceTree = "<group>";
 		};
 		929235B22B66CA7900BE187B /* Shared Helpers */ = {
@@ -515,7 +613,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9253CD4F2B66B10500FDB13F /* CEPDetails.swift in Sources */,
+				921C538D2B6A50ED006E85ED /* CEPSearchViewModel.swift in Sources */,
+				921C53932B6A639F006E85ED /* RemoteCEPGetterMapper.swift in Sources */,
+				921C538C2B6A50D4006E85ED /* CEPDetailsViewModel.swift in Sources */,
+				928150FF2B69D8C80031E8FE /* RemoteCEPGetter.swift in Sources */,
+				921C53912B6A6374006E85ED /* CEPGetterEndpoint.swift in Sources */,
+				928151012B69D9750031E8FE /* HTTPClient.swift in Sources */,
 				9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */,
+				921C53982B6A64E2006E85ED /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +628,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9253CD432B66B0ED00FDB13F /* CEPSearchTests.swift in Sources */,
+				921C53962B6A640E006E85ED /* URLSessionHTTPClientTests.swift in Sources */,
+				928150FB2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */,
+				921C538B2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift in Sources */,
+				921C538F2B6A62DE006E85ED /* CEPGetterEndpointTests.swift in Sources */,
+				9253CD432B66B0ED00FDB13F /* RemoteCEPGetterTests.swift in Sources */,
 				92469F602B66DDAF002183D8 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				92469F6A2B66E874002183D8 /* Fixtures-Shared.swift in Sources */,
 			);
@@ -533,8 +642,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928150F42B69C0490031E8FE /* CEPSearchUIComposer.swift in Sources */,
 				92469F712B66EADE002183D8 /* CEPDetailsViewController.swift in Sources */,
-				92596BCC2B6933BC0021766F /* CEPDetailsViewModel.swift in Sources */,
 				92596BCA2B6925130021766F /* CEPDetailsUIComposer.swift in Sources */,
 				92596BC62B690F670021766F /* CEPInfoView.swift in Sources */,
 				92469F4D2B66D37E002183D8 /* CEPSearchView.swift in Sources */,
@@ -549,6 +658,7 @@
 				92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */,
 				92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */,
 				9293D6E82B66EF4C0099EAC3 /* CEPDetailsViewControllerTests.swift in Sources */,
+				928150FC2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */,
 				92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */,
 				92469F6B2B66E875002183D8 /* Fixtures-Shared.swift in Sources */,
 				92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */,

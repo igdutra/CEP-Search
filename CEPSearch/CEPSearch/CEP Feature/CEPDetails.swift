@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CEPDetails {
+public struct CEPDetails: Equatable {
     public let cep: String
     public let street: String
     public let complement: String
