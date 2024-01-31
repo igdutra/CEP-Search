@@ -11,16 +11,14 @@ import CEPSearch
 final class RemoteCEPGetterTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
-        let client = HTTPClientSpy()
-        let _ = RemoteCEPGetter(baseURL: anyURL(), client: client)
+        let (_, client) = makeSUT()
         
         XCTAssert(client.receivedMessages.isEmpty)
     }
     
     func test_getCEP_requestDataFromURL() async {
         let url = anyURL("a-url")
-        let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        let (sut, client) = makeSUT(url: url)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
         client.stub(url: expectedURL, result: .failure(AnyError()))
@@ -34,8 +32,7 @@ final class RemoteCEPGetterTests: XCTestCase {
     
     func test_getCEP_onClientError_failsWithError() async {
         let url = anyURL("a-url")
-        let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        let (sut, client) = makeSUT(url: url)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
         let expectedError = AnyError(message: "Client Error")
@@ -53,8 +50,7 @@ final class RemoteCEPGetterTests: XCTestCase {
     
     func test_getCEP_onNonHTTP200Response_failsWithInvalidData() async {
         let url = anyURL("a-url")
-        let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        let (sut, client) = makeSUT(url: url)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
         let expectedError: RemoteCEPGetter.Error = .invalidData
@@ -76,8 +72,7 @@ final class RemoteCEPGetterTests: XCTestCase {
     
     func test_getCEP_on200HTTPResponse_succeedsWithDetail() async {
         let url = anyURL("a-url")
-        let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        let (sut, client) = makeSUT(url: url)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
       
@@ -99,6 +94,16 @@ final class RemoteCEPGetterTests: XCTestCase {
 // MARK: - Helpers
 private extension RemoteCEPGetterTests {
     typealias SuccessResponse = HTTPClientSpy.SuccessResponse
+    
+    func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteCEPGetter, client: HTTPClientSpy) {
+        let client = HTTPClientSpy()
+        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        
+        trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        
+        return (sut, client)
+    }
     
     // Helper function to extract the implicit CEPGetterEndpoint
     func expectedURL(url: URL, cep: String) -> URL {
