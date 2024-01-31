@@ -29,47 +29,6 @@ final class RemoteCEPGetter {
     }
 }
 
-public protocol HTTPClient {
-    func getData(from url: URL) async throws -> (data: Data, response: HTTPURLResponse)
-}
-
-final class HTTPClientSpy: HTTPClient {
-    enum ReceivedMessage: Equatable {
-        case getData(URL)
-    }
-    private(set) var receivedMessages = [ReceivedMessage]()
-    
-    struct SuccessResponse: Equatable {
-        let response: HTTPURLResponse
-        let data: Data
-    }
-    typealias Result = Swift.Result<SuccessResponse, Error>
-
-    private var stub: (url: URL, result: Result)?
-    
-    func stub(url: URL, result: Result) {
-        stub = (url, result)
-    }
-    
-    // MARK: - Interface
-
-    // Function to handle data fetching, simulating async network calls
-    func getData(from url: URL) async throws -> (data: Data, response: HTTPURLResponse) {
-        receivedMessages.append(.getData(url))
-        
-        guard let stub = self.stub, stub.url == url else {
-            fatalError("No stub for \(url)")
-        }
-        
-        switch stub.result {
-        case let .success(response):
-            return (response.data, response.response)
-        case let .failure(error):
-            throw error
-        }
-    }
-}
-
 final class RemoteCEPGetterTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
@@ -146,4 +105,46 @@ private extension RemoteCEPGetterTests {
         // For now, return url
         return url
     }
+}
+
+// MARK: - Spy
+
+private extension RemoteCEPGetterTests {
+    final class HTTPClientSpy: HTTPClient {
+        enum ReceivedMessage: Equatable {
+            case getData(URL)
+        }
+        private(set) var receivedMessages = [ReceivedMessage]()
+        
+        struct SuccessResponse: Equatable {
+            let response: HTTPURLResponse
+            let data: Data
+        }
+        typealias Result = Swift.Result<SuccessResponse, Error>
+
+        private var stub: (url: URL, result: Result)?
+        
+        func stub(url: URL, result: Result) {
+            stub = (url, result)
+        }
+        
+        // MARK: - Interface
+
+        // Function to handle data fetching, simulating async network calls
+        func getData(from url: URL) async throws -> (data: Data, response: HTTPURLResponse) {
+            receivedMessages.append(.getData(url))
+            
+            guard let stub = self.stub, stub.url == url else {
+                fatalError("No stub for \(url)")
+            }
+            
+            switch stub.result {
+            case let .success(response):
+                return (response.data, response.response)
+            case let .failure(error):
+                throw error
+            }
+        }
+    }
+
 }
