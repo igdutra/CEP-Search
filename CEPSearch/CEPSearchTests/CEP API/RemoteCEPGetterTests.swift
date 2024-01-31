@@ -12,7 +12,7 @@ final class RemoteCEPGetterTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
         let client = HTTPClientSpy()
-        let _ = RemoteCEPGetter(url: anyURL(), client: client)
+        let _ = RemoteCEPGetter(baseURL: anyURL(), client: client)
         
         XCTAssert(client.receivedMessages.isEmpty)
     }
@@ -20,12 +20,12 @@ final class RemoteCEPGetterTests: XCTestCase {
     func test_getCEP_requestDataFromURL() async {
         let url = anyURL("a-url")
         let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(url: url, client: client)
+        let sut = RemoteCEPGetter(baseURL: url, client: client)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
         client.stub(url: expectedURL, result: .failure(AnyError()))
         
-        _ = try? await sut.getCEPDetails(for: .init())
+        _ = try? await sut.getCEPDetails(for: cep)
         
         XCTAssertEqual(client.receivedMessages, [.getData(expectedURL)])
     }
@@ -35,13 +35,14 @@ final class RemoteCEPGetterTests: XCTestCase {
     func test_getCEP_onClientError_failsWithError() async {
         let url = anyURL("a-url")
         let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(url: url, client: client)
-        let expectedURL = expectedURL(url: url, cep: .init())
+        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        let cep = "12345-123"
+        let expectedURL = expectedURL(url: url, cep: cep)
         let expectedError = AnyError(message: "Client Error")
         client.stub(url: expectedURL, result: .failure(expectedError))
         
         do {
-            _ = try await sut.getCEPDetails(for: .init())
+            _ = try await sut.getCEPDetails(for: cep)
             XCTFail("Expected Error but returned successfully instead")
         } catch let error as AnyError {
             XCTAssertEqual(error, expectedError)
@@ -53,15 +54,16 @@ final class RemoteCEPGetterTests: XCTestCase {
     func test_getCEP_onNonHTTP200Response_failsWithInvalidData() async {
         let url = anyURL("a-url")
         let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(url: url, client: client)
-        let expectedURL = expectedURL(url: url, cep: .init())
+        let sut = RemoteCEPGetter(baseURL: url, client: client)
+        let cep = "12345-123"
+        let expectedURL = expectedURL(url: url, cep: cep)
         let expectedError: RemoteCEPGetter.Error = .invalidData
         let clientResponse = SuccessResponse(response: HTTPURLResponse(statusCode: 300),
                                              data: Data())
         client.stub(url: expectedURL, result: .success(clientResponse))
         
         do {
-            _ = try await sut.getCEPDetails(for: .init())
+            _ = try await sut.getCEPDetails(for: cep)
             XCTFail("Expected Error but returned successfully instead")
         } catch let error as RemoteCEPGetter.Error {
             XCTAssertEqual(error, expectedError)
@@ -75,9 +77,9 @@ final class RemoteCEPGetterTests: XCTestCase {
     func test_getCEP_on200HTTPResponse_succeedsWithDetail() async {
         let url = anyURL("a-url")
         let client = HTTPClientSpy()
-        let sut = RemoteCEPGetter(url: url, client: client)
+        let sut = RemoteCEPGetter(baseURL: url, client: client)
         let cep = "12345-123"
-        let expectedURL = expectedURL(url: url, cep: .init())
+        let expectedURL = expectedURL(url: url, cep: cep)
       
         let (expectedDetails, expectedJSONData) = makeDetails()
         let clientResponse = SuccessResponse(response: HTTPURLResponse(statusCode: 200),
@@ -98,8 +100,9 @@ final class RemoteCEPGetterTests: XCTestCase {
 private extension RemoteCEPGetterTests {
     typealias SuccessResponse = HTTPClientSpy.SuccessResponse
     
+    // Helper function to extract the implicit CEPGetterEndpoint
     func expectedURL(url: URL, cep: String) -> URL {
-        // For now, return url
+        let url = CEPGetterEndpoint.get(cep).url(baseURL: url)
         return url
     }
 }

@@ -7,10 +7,22 @@
 
 import Foundation
 
+public enum CEPGetterEndpoint {
+    case get(String)
+    
+    // Base URL is https://viacep.com.br/ws/
+    public func url(baseURL: URL) -> URL {
+        switch self {
+        case let .get(cep):
+            return baseURL.appendingPathComponent("/\(cep)/json")
+        }
+    }
+}
+
 // Note: this Mapper was added as internal type. It is being tested in integration by the RemoteCEPGetterTests
 // No test was broken when it was added, and the Decodable conformance was removed from the CEPDetails Model
 enum RemoteCEPGetterMapper {
-    private static let OK_200: Int = 200
+    private static let OK_200: Int = 200 // Avoid Magic numbers
     
     // Note: This way we protec our domain models from API implementation details
     // Payload represents the https://viacep.com.br return
@@ -61,25 +73,20 @@ enum RemoteCEPGetterMapper {
 
 public final class RemoteCEPGetter {
     private let client: HTTPClient
-    private let url: URL
+    private let baseURL: URL
     
-    public init(url: URL, client: HTTPClient) {
-        self.url = url
+    public init(baseURL: URL, client: HTTPClient) {
+        self.baseURL = baseURL
         self.client = client
     }
     
     public func getCEPDetails(for cep: String) async throws -> CEPDetails {
-        // TODO: add URL mapper to add CEP
+        let url = CEPGetterEndpoint.get(cep).url(baseURL: baseURL)
         
+        let (data, response) = try await client.getData(from: url)
+        let details = try RemoteCEPGetterMapper.map(data, response: response)
         
-        
-        do {
-            let (data, response) = try await client.getData(from: url)
-            let details = try RemoteCEPGetterMapper.map(data, response: response)
-            return details
-        } catch {
-            throw error
-        }
+        return details
     }
     
     // MARK: - Errors
