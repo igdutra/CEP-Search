@@ -15,7 +15,7 @@ public struct CEPSearchView: View {
     var viewData: CEPSearchViewData
     private var action: (String) async -> Void
     
-    init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void) {
+    public init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void) {
         self._cep = cep
         self.viewData = viewData
         self.action = action
