@@ -31,8 +31,7 @@ public final class CEPSearchViewModel {
         self.cepGetter = cepGetter
     }
     
-    public func fetchCEPDetails(cep: String) async {
-        let _ = try? await cepGetter.getCEPDetails(for: cep)
-        // TODO: Navigation
+    public func fetchCEPDetails(cep: String) async -> CEPDetails? {
+        return try? await cepGetter.getCEPDetails(for: cep)
     }
 }
