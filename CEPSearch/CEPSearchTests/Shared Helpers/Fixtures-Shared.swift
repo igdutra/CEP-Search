@@ -25,32 +25,18 @@ func makeCEPDetailsFixture(cep: String = "00000-000",
 }
 
 func makeCEPDetailsJSONData(_ details: CEPDetails) -> Data {
-    // Encodable structure to mirror the CEPDetails for JSON encoding
-    // And not expose CEPDetails to Encodable outside this function scope
-    struct EncodableCEPDetails: Encodable {
-        let cepDetails: CEPDetails
-
-        enum CodingKeys: String, CodingKey {
-            case cep, street, complement, district, city, state
-        }
-
-        func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            try container.encode(cepDetails.cep, forKey: .cep)
-            try container.encode(cepDetails.street, forKey: .street)
-            try container.encode(cepDetails.complement, forKey: .complement)
-            try container.encode(cepDetails.district, forKey: .district)
-            try container.encode(cepDetails.city, forKey: .city)
-            try container.encode(cepDetails.state, forKey: .state)
-        }
-    }
-
-    let encoder = JSONEncoder()
-    do {
-        let encodableItems = EncodableCEPDetails(cepDetails: details)
-        let jsonData = try encoder.encode(encodableItems)
-        return jsonData
-    } catch {
-        fatalError("Failed to encode CEPDetails: \(error)")
-    }
+    let json: [String: String] = [
+        "cep": details.cep,
+        "logradouro": details.street,
+        "complemento": details.complement,
+        "bairro": details.district,
+        "localidade": details.city,
+        "uf": details.state,
+        "ibge": "1111111",
+        "gia": "1111",
+        "ddd": "11",
+        "siafi": "1111",
+    ]
+    
+    return try! JSONSerialization.data(withJSONObject: json)
 }
