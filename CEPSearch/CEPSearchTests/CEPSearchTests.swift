@@ -19,21 +19,44 @@ final class RemoteCEPGetter {
     
     func getCEPDetails(for cep: String) async throws {
         // TODO: add URL mapper to add CEP
-        client.getData(from: url)
+        _ = try await client.getData(from: url)
     }
 }
 
 final class HTTPClient {
-    // Note: ReceivedMessage is the method signature
     enum ReceivedMessage: Equatable {
         case getData(URL)
     }
-    
     private(set) var receivedMessages = [ReceivedMessage]()
     
-    func getData(from url: URL) {
-        
+    struct SuccessResponse: Equatable {
+        let response: HTTPURLResponse
+        let data: Data
+    }
+    typealias Result = Swift.Result<SuccessResponse, Error>
+
+    private var stub: (url: URL, result: Result)?
+    
+    func stub(url: URL, result: Result) {
+        stub = (url, result)
+    }
+    
+    // MARK: - Interface
+
+    // Function to handle data fetching, simulating async network calls
+    func getData(from url: URL) async throws -> (data: Data, response: HTTPURLResponse) {
         receivedMessages.append(.getData(url))
+        
+        guard let stub = self.stub, stub.url == url else {
+            fatalError("No stub for \(url)")
+        }
+        
+        switch stub.result {
+        case let .success(response):
+            return (response.data, response.response)
+        case let .failure(error):
+            throw error
+        }
     }
 }
 
@@ -52,10 +75,31 @@ final class RemoteCEPGetterTests: XCTestCase {
         let sut = RemoteCEPGetter(url: url, client: client)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
+        client.stub(url: expectedURL, result: .failure(AnyError()))
         
         _ = try? await sut.getCEPDetails(for: .init())
         
         XCTAssertEqual(client.receivedMessages, [.getData(expectedURL)])
+    }
+    
+    // MARK: - Error Cases
+    
+    func test_getCEP_onClientError_failsWithError() async {
+        let url = anyURL("a-url")
+        let client = HTTPClient()
+        let sut = RemoteCEPGetter(url: url, client: client)
+        let expectedURL = expectedURL(url: url, cep: .init())
+        let expectedError = AnyError(message: "Client Error")
+        client.stub(url: expectedURL, result: .failure(expectedError))
+        
+        do {
+            try await sut.getCEPDetails(for: .init())
+            XCTFail("Expected Error but returned successfully instead")
+        } catch let error as AnyError {
+            XCTAssertEqual(error, expectedError)
+        } catch {
+            XCTFail("Expected AnyError but returned \(error) instead")
+        }
     }
 }
 
