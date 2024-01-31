@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "4B12D973-F6A8-432E-B625-F3139CF37823",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CEPSearch.xcodeproj",
+        "identifier" : "9253CD5B2B66B17B00FDB13F",
+        "name" : "CEPiOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
