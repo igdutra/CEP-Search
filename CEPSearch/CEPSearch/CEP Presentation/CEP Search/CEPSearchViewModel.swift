@@ -37,16 +37,17 @@ public final class CEPSearchViewModel {
         self.nextViewToPresent = nextViewToPresent
     }
     
-    public func fetchCEPDetails(cep: String) async {
+    public func fetchCEPDetails(cep: String) async -> Bool {
         do {
             let details = try await cepGetter.getCEPDetails(for: cep)
-//            let nextView = nextViewToPresent(details)
-//            onNextView?(nextView)
             self.nextView = nextViewToPresent(details)
-            print(nextView)
+            return true
         } catch {
-            // NEED TO CONTROL STATE HERE
             print("TODO: Handle error in the UI!\n", error.localizedDescription)
+            // Note: This func shoudl not return state
+            // The boolean should be managed by the viewModel.
+            // However Binding<Bool> was not working, so decided to return state instead.
+            return false
         }
     }
 }

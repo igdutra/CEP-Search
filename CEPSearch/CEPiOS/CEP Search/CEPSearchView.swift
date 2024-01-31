@@ -14,18 +14,18 @@ public struct CEPSearchView: View {
     @Binding var cep: String
     @Binding var nextView: AnyView
     var viewData: CEPSearchViewData
-    private var action: (String) async -> Void
+    private var action: (String) async -> Bool
     // TODO: Search for another type erasures
     private var nextViewToPresent: (() -> AnyView)?
 
-    // Note: tried to move this state to the viewModel througn custom Binding, where it belongs, but did not work.
+    // Note: tried to move this state to the viewModel through custom Binding, where it belongs, but did not work.
     // TODO: Fix that. 
     @State private var shouldPresentNextScreen: Bool = false
     
     public init(cep: Binding<String>,
                 nextView: Binding<AnyView>,
                 viewData: CEPSearchViewData,
-                action: @escaping (String) async -> Void) {
+                action: @escaping (String) async -> Bool) {
         self._cep = cep
         self._nextView = nextView
         self.viewData = viewData
@@ -43,9 +43,7 @@ public struct CEPSearchView: View {
                 // And move it to a Design System
                 Button(viewData.buttonText) {
                     Task {
-                        // Move presentation logic to viewModel
-                        await action(cep)
-                        shouldPresentNextScreen = true // Move to viewModel through bidning
+                        shouldPresentNextScreen = await action(cep)
                     }
                 }
                 .padding()
@@ -56,7 +54,6 @@ public struct CEPSearchView: View {
             .padding()
             .navigationDestination(isPresented: $shouldPresentNextScreen,
                                    destination: {
-//                nextViewToPresent?()
                 nextView
             })
         }
@@ -75,11 +72,13 @@ struct CEPSearchView_Previews: PreviewProvider {
         @State private var cep: String = ""
         
         var body: some View {
-            CEPSearchView(cep: $cep, nextView: .constant(AnyView(EmptyView())),
+            CEPSearchView(cep: $cep,
+                          nextView: .constant(AnyView(TestView())),
                           viewData: CEPSearchViewData(placeholderText: "Digite o CEP",
                                                       buttonText: "Procurar Endereço"),
                           action: { cep in
                 print("CEP typed: ", cep)
+                return false
             })
         }
     }
