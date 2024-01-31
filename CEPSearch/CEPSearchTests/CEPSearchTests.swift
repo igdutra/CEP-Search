@@ -29,7 +29,11 @@ final class RemoteCEPGetter {
     }
 }
 
-final class HTTPClient {
+public protocol HTTPClient {
+    func getData(from url: URL) async throws -> (data: Data, response: HTTPURLResponse)
+}
+
+final class HTTPClientSpy: HTTPClient {
     enum ReceivedMessage: Equatable {
         case getData(URL)
     }
@@ -69,7 +73,7 @@ final class HTTPClient {
 final class RemoteCEPGetterTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
-        let client = HTTPClient()
+        let client = HTTPClientSpy()
         let _ = RemoteCEPGetter(url: anyURL(), client: client)
         
         XCTAssert(client.receivedMessages.isEmpty)
@@ -77,7 +81,7 @@ final class RemoteCEPGetterTests: XCTestCase {
     
     func test_getCEP_requestDataFromURL() async {
         let url = anyURL("a-url")
-        let client = HTTPClient()
+        let client = HTTPClientSpy()
         let sut = RemoteCEPGetter(url: url, client: client)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: cep)
@@ -92,7 +96,7 @@ final class RemoteCEPGetterTests: XCTestCase {
     
     func test_getCEP_onClientError_failsWithError() async {
         let url = anyURL("a-url")
-        let client = HTTPClient()
+        let client = HTTPClientSpy()
         let sut = RemoteCEPGetter(url: url, client: client)
         let expectedURL = expectedURL(url: url, cep: .init())
         let expectedError = AnyError(message: "Client Error")
@@ -114,7 +118,7 @@ final class RemoteCEPGetterTests: XCTestCase {
     
     func test_getCEP_on200HTTPResponse_succeedsWithDetail() async {
         let url = anyURL("a-url")
-        let client = HTTPClient()
+        let client = HTTPClientSpy()
         let sut = RemoteCEPGetter(url: url, client: client)
         let cep = "12345-123"
         let expectedURL = expectedURL(url: url, cep: .init())
@@ -136,7 +140,7 @@ final class RemoteCEPGetterTests: XCTestCase {
 
 // MARK: - Helpers
 private extension RemoteCEPGetterTests {
-    typealias SuccessResponse = HTTPClient.SuccessResponse
+    typealias SuccessResponse = HTTPClientSpy.SuccessResponse
     
     func expectedURL(url: URL, cep: String) -> URL {
         // For now, return url
