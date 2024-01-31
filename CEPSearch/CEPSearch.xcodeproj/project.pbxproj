@@ -14,6 +14,7 @@
 		921C53912B6A6374006E85ED /* CEPGetterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */; };
 		921C53932B6A639F006E85ED /* RemoteCEPGetterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */; };
 		921C53962B6A640E006E85ED /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53942B6A63E2006E85ED /* URLSessionHTTPClientTests.swift */; };
+		921C53982B6A64E2006E85ED /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53972B6A64E2006E85ED /* URLSessionHTTPClient.swift */; };
 		92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */; };
 		92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */; };
 		92469F4A2B66CF18002183D8 /* SEARCH_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 92469F462B66CF14002183D8 /* SEARCH_dark.png */; };
@@ -94,6 +95,7 @@
 		921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterEndpoint.swift; sourceTree = "<group>"; };
 		921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCEPGetterMapper.swift; sourceTree = "<group>"; };
 		921C53942B6A63E2006E85ED /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		921C53972B6A64E2006E85ED /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewSnapshotTests.swift; sourceTree = "<group>"; };
 		92469F462B66CF14002183D8 /* SEARCH_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_dark.png; sourceTree = "<group>"; };
 		92469F472B66CF14002183D8 /* SEARCH_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_light.png; sourceTree = "<group>"; };
@@ -182,6 +184,25 @@
 				921C538A2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift */,
 			);
 			path = "CEP Presentation";
+			sourceTree = "<group>";
+		};
+		921C53992B6A64E9006E85ED /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */,
+				921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */,
+				921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */,
+			);
+			path = "Use Case";
+			sourceTree = "<group>";
+		};
+		921C539A2B6A64F9006E85ED /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				928151002B69D9750031E8FE /* HTTPClient.swift */,
+				921C53972B6A64E2006E85ED /* URLSessionHTTPClient.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		92469F442B66CD16002183D8 /* CEP Search */ = {
@@ -376,10 +397,8 @@
 		928150FD2B69D8B90031E8FE /* CEP API */ = {
 			isa = PBXGroup;
 			children = (
-				928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */,
-				921C53922B6A639F006E85ED /* RemoteCEPGetterMapper.swift */,
-				921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */,
-				928151002B69D9750031E8FE /* HTTPClient.swift */,
+				921C53992B6A64E9006E85ED /* Use Case */,
+				921C539A2B6A64F9006E85ED /* Infrastructure */,
 			);
 			path = "CEP API";
 			sourceTree = "<group>";
@@ -601,6 +620,7 @@
 				921C53912B6A6374006E85ED /* CEPGetterEndpoint.swift in Sources */,
 				928151012B69D9750031E8FE /* HTTPClient.swift in Sources */,
 				9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */,
+				921C53982B6A64E2006E85ED /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
