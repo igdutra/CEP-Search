@@ -12,6 +12,10 @@
 		922087602B6AA04200AA9D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9220875F2B6AA04200AA9D44 /* Assets.xcassets */; };
 		922087642B6AA04200AA9D44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922087632B6AA04200AA9D44 /* Preview Assets.xcassets */; };
 		9220876E2B6AA04200AA9D44 /* CEPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220876D2B6AA04200AA9D44 /* CEPAppTests.swift */; };
+		922087882B6AA11100AA9D44 /* CEPiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922087872B6AA11100AA9D44 /* CEPiOS.framework */; };
+		922087892B6AA11100AA9D44 /* CEPiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 922087872B6AA11100AA9D44 /* CEPiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9220878C2B6AA11800AA9D44 /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9220878B2B6AA11800AA9D44 /* CEPSearch.framework */; };
+		9220878D2B6AA11900AA9D44 /* CEPSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9220878B2B6AA11800AA9D44 /* CEPSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +28,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9220878A2B6AA11100AA9D44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				922087892B6AA11100AA9D44 /* CEPiOS.framework in Embed Frameworks */,
+				9220878D2B6AA11900AA9D44 /* CEPSearch.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		922087582B6AA04100AA9D44 /* CEPApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEPApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9220875B2B6AA04100AA9D44 /* CEPAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPAppApp.swift; sourceTree = "<group>"; };
@@ -33,6 +52,8 @@
 		922087632B6AA04200AA9D44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		922087692B6AA04200AA9D44 /* CEPAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEPAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9220876D2B6AA04200AA9D44 /* CEPAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPAppTests.swift; sourceTree = "<group>"; };
+		922087872B6AA11100AA9D44 /* CEPiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CEPiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9220878B2B6AA11800AA9D44 /* CEPSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CEPSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922087882B6AA11100AA9D44 /* CEPiOS.framework in Frameworks */,
+				9220878C2B6AA11800AA9D44 /* CEPSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +82,7 @@
 				9220875A2B6AA04100AA9D44 /* CEPApp */,
 				9220876C2B6AA04200AA9D44 /* CEPAppTests */,
 				922087592B6AA04100AA9D44 /* Products */,
+				922087862B6AA11100AA9D44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +123,15 @@
 			path = CEPAppTests;
 			sourceTree = "<group>";
 		};
+		922087862B6AA11100AA9D44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9220878B2B6AA11800AA9D44 /* CEPSearch.framework */,
+				922087872B6AA11100AA9D44 /* CEPiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,6 +142,7 @@
 				922087542B6AA04100AA9D44 /* Sources */,
 				922087552B6AA04100AA9D44 /* Frameworks */,
 				922087562B6AA04100AA9D44 /* Resources */,
+				9220878A2B6AA11100AA9D44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
