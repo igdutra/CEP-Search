@@ -32,6 +32,9 @@
             reference = "container:CEPAppTests/CEPApp.xctestplan"
             default = "YES">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:CEPAppTests/CI/CI-iOS.xctestplan">
+         </TestPlanReference>
       </TestPlans>
    </TestAction>
    <LaunchAction
