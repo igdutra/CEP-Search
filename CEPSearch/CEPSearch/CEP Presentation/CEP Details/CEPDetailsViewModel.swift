@@ -5,7 +5,7 @@
 //  Created by Ivo on 30/01/24.
 //
 
-import CEPSearch
+import Foundation
 
 // MARK: - Models
 
@@ -41,7 +41,7 @@ public final class CEPDetailsViewModel {
     private let model: CEPDetails
     var onViewDataUpdated: Observer<CEPDetailsViewData>?
 
-    init(model: CEPDetails) {
+    public init(model: CEPDetails) {
         self.model = model
     }
     

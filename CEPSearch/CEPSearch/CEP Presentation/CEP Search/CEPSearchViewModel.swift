@@ -5,7 +5,7 @@
 //  Created by Ivo on 30/01/24.
 //
 
-import CEPSearch
+import Foundation
 
 struct CEPSearchViewData {
     var placeholderText: String
