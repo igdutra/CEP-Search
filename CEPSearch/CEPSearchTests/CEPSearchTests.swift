@@ -17,9 +17,15 @@ final class RemoteCEPGetter {
         self.client = client
     }
     
-    func getCEPDetails(for cep: String) async throws {
+    func getCEPDetails(for cep: String) async throws -> CEPDetails {
         // TODO: add URL mapper to add CEP
-        _ = try await client.getData(from: url)
+        do {
+            let (data, response) = try await client.getData(from: url)
+            let details = try JSONDecoder().decode(CEPDetails.self, from: data)
+            return details
+        } catch {
+            throw error
+        }
     }
 }
 
@@ -93,7 +99,7 @@ final class RemoteCEPGetterTests: XCTestCase {
         client.stub(url: expectedURL, result: .failure(expectedError))
         
         do {
-            try await sut.getCEPDetails(for: .init())
+            _ = try await sut.getCEPDetails(for: .init())
             XCTFail("Expected Error but returned successfully instead")
         } catch let error as AnyError {
             XCTAssertEqual(error, expectedError)
@@ -101,10 +107,37 @@ final class RemoteCEPGetterTests: XCTestCase {
             XCTFail("Expected AnyError but returned \(error) instead")
         }
     }
+    
+    // Note: Could define especific error cases
+    
+    // MARK: - Success Cases
+    
+    func test_getCEP_on200HTTPResponse_succeedsWithDetail() async {
+        let url = anyURL("a-url")
+        let client = HTTPClient()
+        let sut = RemoteCEPGetter(url: url, client: client)
+        let cep = "12345-123"
+        let expectedURL = expectedURL(url: url, cep: .init())
+      
+        let (expectedDetails, expectedJSONData) = makeDetails()
+        let clientResponse = SuccessResponse(response: HTTPURLResponse(statusCode: 200),
+                                             data: expectedJSONData)
+        client.stub(url: expectedURL, result: .success(clientResponse))
+        
+        do {
+            let details = try await sut.getCEPDetails(for: cep)
+            XCTAssertEqual(details, expectedDetails)
+        } catch {
+            XCTFail("Expected Success but returned \(error) instead")
+        }
+    }
+    
 }
 
 // MARK: - Helpers
 private extension RemoteCEPGetterTests {
+    typealias SuccessResponse = HTTPClient.SuccessResponse
+    
     func expectedURL(url: URL, cep: String) -> URL {
         // For now, return url
         return url

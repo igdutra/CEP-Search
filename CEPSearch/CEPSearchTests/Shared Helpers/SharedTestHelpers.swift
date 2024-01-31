@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CEPSearch
 
 // MARK: - Free Funcs
 
@@ -25,4 +26,21 @@ struct AnyError: Error, Equatable {
 
 func anyErrorErased(_ message: String = .init()) -> Error {
     return AnyError(message: message)
+}
+
+// MARK: - Models
+
+func makeDetails() -> (model: CEPDetails, data: Data) {
+    let details = makeCEPDetailsFixture(cep: "12345-123")
+    let data = makeCEPDetailsJSONData(details)
+    
+    return (details, data)
+}
+
+// MARK: - HTTPURLResponse
+
+extension HTTPURLResponse {
+    convenience init(statusCode: Int) {
+        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+    }
 }
