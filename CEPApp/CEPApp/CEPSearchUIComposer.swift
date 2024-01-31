@@ -10,17 +10,32 @@ import CEPSearch
 import CEPiOS
 
 public enum CEPSearchUIComposer {
-    public static func composeView(cepGetter: CEPGetter) -> CEPSearchView {
-        let viewModel = CEPSearchViewModel(cepGetter: cepGetter)
+    public static func composeView(cepGetter: CEPGetter,
+                                   nextViewToPresent: @escaping (CEPDetails) -> AnyView) -> CEPSearchView {
+        let viewModel = CEPSearchViewModel(cepGetter: cepGetter,
+                                           nextViewToPresent: nextViewToPresent)
         
         // Bind the ViewModel and the View
         // Keeping ViewModel agnostic
-        let binding = Binding<String>(
+        let cepBinding = Binding<String>(
             get: { viewModel.cep },
             set: { viewModel.cep = $0 }
         )
         
-        return CEPSearchView(cep: binding,
+        let viewBinding = Binding<AnyView>(
+            get: { viewModel.nextView },
+            set: { viewModel.nextView = $0 }
+        )
+        
+        
+        // Note: at latest point in time, I was not able to get this binding to work as intended
+//        let shouldPresentNextScreenBinding = Binding<Bool>(
+//            get: { viewModel.shouldPresentNextScreen },
+//            set: { viewModel.shouldPresentNextScreen = $0 }
+//        )
+        
+        return CEPSearchView(cep: cepBinding,
+                             nextView: viewBinding,
                              viewData: viewModel.viewData,
                              action: viewModel.fetchCEPDetails)
     }

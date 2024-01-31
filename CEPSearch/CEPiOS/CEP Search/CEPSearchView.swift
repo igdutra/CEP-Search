@@ -12,38 +12,57 @@ import CEPSearch
 
 public struct CEPSearchView: View {
     @Binding var cep: String
+    @Binding var nextView: AnyView
     var viewData: CEPSearchViewData
-    private var action: (String) async -> Void
+    private var action: (String) async -> Bool
+    // TODO: Search for another type erasures
+    private var nextViewToPresent: (() -> AnyView)?
+
+    // Note: tried to move this state to the viewModel through custom Binding, where it belongs, but did not work.
+    // TODO: Fix that. 
+    @State private var shouldPresentNextScreen: Bool = false
     
-    public init(cep: Binding<String>, viewData: CEPSearchViewData, action: @escaping (String) async -> Void) {
+    public init(cep: Binding<String>,
+                nextView: Binding<AnyView>,
+                viewData: CEPSearchViewData,
+                action: @escaping (String) async -> Bool) {
         self._cep = cep
+        self._nextView = nextView
         self.viewData = viewData
         self.action = action
     }
 
     public var body: some View {
-        VStack(spacing: 24) {
-            TextField(viewData.placeholderText, text: $cep)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-            // Could create SwiftUI Component for this Button
-            // And move it to a Design System
-            Button(viewData.buttonText) {
-                Task {
-                    await action(cep)
+        NavigationStack {
+            VStack(spacing: 24) {
+                TextField(viewData.placeholderText, text: $cep)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                // Could create SwiftUI Component for this Button
+                // And move it to a Design System
+                Button(viewData.buttonText) {
+                    Task {
+                        shouldPresentNextScreen = await action(cep)
+                    }
                 }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(8)
             }
             .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
+            .navigationDestination(isPresented: $shouldPresentNextScreen,
+                                   destination: {
+                nextView
+            })
         }
-        .padding()
     }
 }
 
-// MARK: - Previews
+// MARK: - Previews - Testing Only
+
+// Note: Container is getting poluted, might study to move that elsewhere
 
 // Note: Create a Container for the Preview so we can preview correctly in a live preview how the TextField works
 struct CEPSearchView_Previews: PreviewProvider {
@@ -51,14 +70,25 @@ struct CEPSearchView_Previews: PreviewProvider {
     // It's not limited by the static context of the PreviewProvider
     struct CEPSearchViewContainer: View {
         @State private var cep: String = ""
-
+        
         var body: some View {
             CEPSearchView(cep: $cep,
+                          nextView: .constant(AnyView(TestView())),
                           viewData: CEPSearchViewData(placeholderText: "Digite o CEP",
                                                       buttonText: "Procurar Endereço"),
                           action: { cep in
                 print("CEP typed: ", cep)
+                return false
             })
+        }
+    }
+    
+    struct TestView: View {
+        var body: some View {
+            Text("Hello, SwiftUI!!!!!!!!! ")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(.blue)
         }
     }
 

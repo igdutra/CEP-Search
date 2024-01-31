@@ -29,11 +29,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:CEPAppTests/CEPApp.xctestplan"
+            reference = "container:CEPAppTests/CI/CI-iOS.xctestplan"
             default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:CEPAppTests/CI/CI-iOS.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>

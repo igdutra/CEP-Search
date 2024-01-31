@@ -22,9 +22,9 @@ struct CEPApp: App {
         let session = URLSession(configuration: .default)
         let client = URLSessionHTTPClient(session: session)
         let cepGetter = RemoteCEPGetter(baseURL: baseURL, client: client)
-        searchView = CEPSearchUIComposer.composeView(cepGetter: cepGetter)
+        searchView = CEPSearchUIComposer.composeView(cepGetter: cepGetter,
+                                                     nextViewToPresent: CEPApp.navigateToDetails)
     }
-    
     
     // MARK: - View
     
@@ -32,5 +32,13 @@ struct CEPApp: App {
         WindowGroup {
             searchView
         }
+    }
+}
+
+// MARK: - Helpers
+private extension CEPApp {
+    static func navigateToDetails(_ details: CEPDetails) -> AnyView {
+        let swiftUIView = CEPDetailsSwiftUIView(details: details)
+        return AnyView(swiftUIView)
     }
 }
