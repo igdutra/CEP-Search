@@ -11,6 +11,7 @@
 		921C538C2B6A50D4006E85ED /* CEPDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596BCB2B6933BC0021766F /* CEPDetailsViewModel.swift */; };
 		921C538D2B6A50ED006E85ED /* CEPSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150F52B69C05E0031E8FE /* CEPSearchViewModel.swift */; };
 		921C538F2B6A62DE006E85ED /* CEPGetterEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C538E2B6A62DE006E85ED /* CEPGetterEndpointTests.swift */; };
+		921C53912B6A6374006E85ED /* CEPGetterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */; };
 		92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */; };
 		92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */; };
 		92469F4A2B66CF18002183D8 /* SEARCH_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 92469F462B66CF14002183D8 /* SEARCH_dark.png */; };
@@ -88,6 +89,7 @@
 /* Begin PBXFileReference section */
 		921C538A2B6A4FD0006E85ED /* CEPDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		921C538E2B6A62DE006E85ED /* CEPGetterEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterEndpointTests.swift; sourceTree = "<group>"; };
+		921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterEndpoint.swift; sourceTree = "<group>"; };
 		92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewSnapshotTests.swift; sourceTree = "<group>"; };
 		92469F462B66CF14002183D8 /* SEARCH_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_dark.png; sourceTree = "<group>"; };
 		92469F472B66CF14002183D8 /* SEARCH_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_light.png; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */,
+				921C53902B6A6374006E85ED /* CEPGetterEndpoint.swift */,
 				928151002B69D9750031E8FE /* HTTPClient.swift */,
 			);
 			path = "CEP API";
@@ -588,6 +591,7 @@
 				921C538D2B6A50ED006E85ED /* CEPSearchViewModel.swift in Sources */,
 				921C538C2B6A50D4006E85ED /* CEPDetailsViewModel.swift in Sources */,
 				928150FF2B69D8C80031E8FE /* RemoteCEPGetter.swift in Sources */,
+				921C53912B6A6374006E85ED /* CEPGetterEndpoint.swift in Sources */,
 				928151012B69D9750031E8FE /* HTTPClient.swift in Sources */,
 				9253CD6E2B66BA1900FDB13F /* CEPGetter.swift in Sources */,
 			);

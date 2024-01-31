@@ -7,18 +7,6 @@
 
 import Foundation
 
-public enum CEPGetterEndpoint {
-    case get(String)
-    
-    // Base URL is https://viacep.com.br/ws/
-    public func url(baseURL: URL) -> URL {
-        switch self {
-        case let .get(cep):
-            return baseURL.appendingPathComponent("/\(cep)/json")
-        }
-    }
-}
-
 // Note: this Mapper was added as internal type. It is being tested in integration by the RemoteCEPGetterTests
 // No test was broken when it was added, and the Decodable conformance was removed from the CEPDetails Model
 enum RemoteCEPGetterMapper {
