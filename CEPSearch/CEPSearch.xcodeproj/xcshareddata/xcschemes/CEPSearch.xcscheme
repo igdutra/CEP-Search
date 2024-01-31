@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:CI/CI-macOS.xctestplan"
+            reference = "container:CEPSearchTests/CEPSearch.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

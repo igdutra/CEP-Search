@@ -43,6 +43,7 @@
 		928150FF2B69D8C80031E8FE /* RemoteCEPGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928150FE2B69D8C80031E8FE /* RemoteCEPGetter.swift */; };
 		928151012B69D9750031E8FE /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928151002B69D9750031E8FE /* HTTPClient.swift */; };
 		929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */; };
+		9297268E2B6AAFF700E61CFF /* CEPSearch.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 9297268D2B6AAFF700E61CFF /* CEPSearch.xctestplan */; };
 		92D83E052B67C379006A952D /* Fixtures-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D83E042B67C379006A952D /* Fixtures-iOS.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		928151002B69D9750031E8FE /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		929235B32B66CA8800BE187B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		929235B72B66CB6A00BE187B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		9297268D2B6AAFF700E61CFF /* CEPSearch.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CEPSearch.xctestplan; sourceTree = "<group>"; };
 		92D83E042B67C379006A952D /* Fixtures-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fixtures-iOS.swift"; sourceTree = "<group>"; };
 		92E3BB2F2B67BFE7001AA958 /* CI-iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-iOS.xctestplan"; sourceTree = "<group>"; };
 		92E9F2992B67C2DD005D2E96 /* CI-macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI-macOS.xctestplan"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		9253CD412B66B0ED00FDB13F /* CEPSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				9297268D2B6AAFF700E61CFF /* CEPSearch.xctestplan */,
 				92469F5D2B66DD87002183D8 /* Shared Helpers */,
 				921C53862B6A4F8E006E85ED /* CEP API */,
 				921C53872B6A4F94006E85ED /* CEP Presentation */,
@@ -563,6 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9297268E2B6AAFF700E61CFF /* CEPSearch.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

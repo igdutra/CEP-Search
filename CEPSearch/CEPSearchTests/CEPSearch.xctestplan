@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "40D11F8B-1BEC-4904-9696-6D483231CDA3",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CEPSearch.xcodeproj",
+        "identifier" : "9253CD3C2B66B0ED00FDB13F",
+        "name" : "CEPSearchTests"
+      }
+    }
+  ],
+  "version" : 1
+}
