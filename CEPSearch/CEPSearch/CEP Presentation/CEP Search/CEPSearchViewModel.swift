@@ -25,7 +25,7 @@ public final class CEPSearchViewModel {
 
     // Note: Retrieve localized values
     public var viewData: CEPSearchViewData = {
-        CEPSearchViewData(placeholderText: "Digite o CEP",
+        CEPSearchViewData(placeholderText: "Digite o CEP. Ex: 01001000",
                           buttonText: "Procurar Endereço")
     }()
     
