@@ -38,14 +38,10 @@ final class RemoteCEPGetterTests: XCTestCase {
         let expectedError = AnyError(message: "Client Error")
         client.stub(url: expectedURL, result: .failure(expectedError))
         
-        do {
+        await assertCEPError(expectedError: expectedError,
+                             action: {
             _ = try await sut.getCEPDetails(for: cep)
-            XCTFail("Expected Error but returned successfully instead")
-        } catch let error as AnyError {
-            XCTAssertEqual(error, expectedError)
-        } catch {
-            XCTFail("Expected AnyError but returned \(error) instead")
-        }
+        })
     }
     
     func test_getCEP_onNonHTTP200Response_failsWithInvalidData() async {
@@ -58,14 +54,10 @@ final class RemoteCEPGetterTests: XCTestCase {
                                              data: Data())
         client.stub(url: expectedURL, result: .success(clientResponse))
         
-        do {
+        await assertCEPError(expectedError: expectedError,
+                             action: {
             _ = try await sut.getCEPDetails(for: cep)
-            XCTFail("Expected Error but returned successfully instead")
-        } catch let error as RemoteCEPGetter.Error {
-            XCTAssertEqual(error, expectedError)
-        } catch {
-            XCTFail("Expected AnyError but returned \(error) instead")
-        }
+        })
     }
     
     // MARK: - Success Cases
@@ -110,6 +102,20 @@ private extension RemoteCEPGetterTests {
         let url = CEPGetterEndpoint.get(cep).url(baseURL: url)
         return url
     }
+    
+    func assertCEPError<T: Equatable>(expectedError: T,
+                                      file: StaticString = #filePath, line: UInt = #line,
+                                      action: @escaping () async throws -> Void) async {
+        do {
+            try await action()
+            XCTFail("Expected Error but returned successfully instead", file: file, line: line)
+        } catch let error as T where error == expectedError {
+            XCTAssertEqual(error, expectedError, file: file, line: line)
+        } catch {
+            XCTFail("Expected \(T.self) but returned \(error) instead", file: file, line: line)
+        }
+    }
+
 }
 
 // MARK: - Spy
