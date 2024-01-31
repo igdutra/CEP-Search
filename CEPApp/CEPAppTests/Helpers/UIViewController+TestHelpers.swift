@@ -18,6 +18,9 @@ extension UIViewController {
      A discussion must be made in order to validate this approach. 
      UIIntegrationTests will be moved to the App Target. Assess then if this solved the issue.
      Not present on iOS 16.
+     Moving to App Target (and removing the delay) did not fix the issue.
+     
+     Alternatives should be discussed.
     */
     func simulateAppearance() {
         loadViewIfNeeded()
