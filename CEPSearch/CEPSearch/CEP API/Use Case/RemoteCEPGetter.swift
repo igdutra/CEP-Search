@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class RemoteCEPGetter {
+public final class RemoteCEPGetter: CEPGetter {
     private let client: HTTPClient
     private let baseURL: URL
     
