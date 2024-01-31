@@ -27,7 +27,8 @@ private extension CEPSearchViewSnapshotTests {
     func makeSUT() -> UIViewController {
         let viewData = CEPSearchViewData(placeholderText: "Digite o CEP",
                                          buttonText: "Procurar Endereço")
-        let view = CEPSearchView(cep: .constant(""),
+        let view = CEPSearchView(cep: .constant(""), 
+                                 nextView: .constant(AnyView(EmptyView())),
                                  viewData: viewData,
                                  action: { _ in })
 
