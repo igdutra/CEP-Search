@@ -22,8 +22,6 @@
 		92469F4D2B66D37E002183D8 /* CEPSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F4C2B66D37E002183D8 /* CEPSearchView.swift */; };
 		92469F4F2B66D755002183D8 /* CEPSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; };
 		92469F502B66D755002183D8 /* CEPSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9253CD352B66B0ED00FDB13F /* CEPSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */; };
-		92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */; };
 		92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */; };
 		92469F6A2B66E874002183D8 /* Fixtures-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F682B66E74C002183D8 /* Fixtures-Shared.swift */; };
 		92469F6B2B66E875002183D8 /* Fixtures-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92469F682B66E74C002183D8 /* Fixtures-Shared.swift */; };
@@ -96,8 +94,6 @@
 		92469F462B66CF14002183D8 /* SEARCH_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_dark.png; sourceTree = "<group>"; };
 		92469F472B66CF14002183D8 /* SEARCH_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH_light.png; sourceTree = "<group>"; };
 		92469F4C2B66D37E002183D8 /* CEPSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchView.swift; sourceTree = "<group>"; };
-		92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchViewTests.swift; sourceTree = "<group>"; };
-		92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterSpy.swift; sourceTree = "<group>"; };
 		92469F642B66E66B002183D8 /* CEPDetailsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPDetailsSnapshotTests.swift; sourceTree = "<group>"; };
 		92469F682B66E74C002183D8 /* Fixtures-Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fixtures-Shared.swift"; sourceTree = "<group>"; };
 		92469F6C2B66E8C0002183D8 /* DETAILS_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DETAILS_dark.png; sourceTree = "<group>"; };
@@ -205,7 +201,6 @@
 				92469F592B66DA7C002183D8 /* Helpers */,
 				92469F452B66CD22002183D8 /* snapshots */,
 				92469F402B66CC39002183D8 /* CEPSearchViewSnapshotTests.swift */,
-				92469F562B66DA0E002183D8 /* CEPSearchViewTests.swift */,
 			);
 			path = "CEP Search";
 			sourceTree = "<group>";
@@ -229,7 +224,6 @@
 		92469F592B66DA7C002183D8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				92469F5A2B66DA89002183D8 /* CEPGetterSpy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,10 +319,10 @@
 		9253CD602B66B17B00FDB13F /* CEPiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				9297268F2B6AB06F00E61CFF /* CEPiOS.xctestplan */,
 				929235B22B66CA7900BE187B /* Shared Helpers */,
 				92469F442B66CD16002183D8 /* CEP Search */,
 				92469F632B66E655002183D8 /* CEP Details */,
-				9297268F2B6AB06F00E61CFF /* CEPiOS.xctestplan */,
 			);
 			path = CEPiOSTests;
 			sourceTree = "<group>";
@@ -638,7 +632,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92469F5C2B66DAB6002183D8 /* CEPGetterSpy.swift in Sources */,
 				92469F662B66E66F002183D8 /* CEPDetailsSnapshotTests.swift in Sources */,
 				928150FC2B69C6540031E8FE /* SharedTestHelpers.swift in Sources */,
 				92469F422B66CC44002183D8 /* CEPSearchViewSnapshotTests.swift in Sources */,
@@ -646,7 +639,6 @@
 				92469F432B66CCAC002183D8 /* UIViewController+Snapshot.swift in Sources */,
 				92D83E052B67C379006A952D /* Fixtures-iOS.swift in Sources */,
 				929235B62B66CAB600BE187B /* XCTestCase+Snapshot.swift in Sources */,
-				92469F582B66DA17002183D8 /* CEPSearchViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@
 		922087972B6AA93B00AA9D44 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922087962B6AA93B00AA9D44 /* XCTestCase+MemoryLeakTracking.swift */; };
 		922087992B6AAA3B00AA9D44 /* CEPDetailsViewController+DSLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922087982B6AAA3B00AA9D44 /* CEPDetailsViewController+DSLs.swift */; };
 		9220879B2B6AAA6B00AA9D44 /* UIViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220879A2B6AAA6B00AA9D44 /* UIViewController+TestHelpers.swift */; };
+		92F1A6682B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1A6672B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift */; };
+		92F1A66A2B6AB19300AE6736 /* CEPGetterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1A6692B6AB19300AE6736 /* CEPGetterSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		922087962B6AA93B00AA9D44 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		922087982B6AAA3B00AA9D44 /* CEPDetailsViewController+DSLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CEPDetailsViewController+DSLs.swift"; sourceTree = "<group>"; };
 		9220879A2B6AAA6B00AA9D44 /* UIViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		92F1A6672B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPSearchUIIntegrationTests.swift; sourceTree = "<group>"; };
+		92F1A6692B6AB19300AE6736 /* CEPGetterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPGetterSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				922087952B6AA8AA00AA9D44 /* Helpers */,
+				92F1A6672B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift */,
 				922087922B6AA88100AA9D44 /* CEPDetailsUIIntegrationTests.swift */,
 			);
 			path = CEPAppTests;
@@ -139,6 +144,7 @@
 		922087952B6AA8AA00AA9D44 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				92F1A6692B6AB19300AE6736 /* CEPGetterSpy.swift */,
 				9220879A2B6AAA6B00AA9D44 /* UIViewController+TestHelpers.swift */,
 				922087982B6AAA3B00AA9D44 /* CEPDetailsViewController+DSLs.swift */,
 				922087962B6AA93B00AA9D44 /* XCTestCase+MemoryLeakTracking.swift */,
@@ -259,6 +265,8 @@
 				922087932B6AA88100AA9D44 /* CEPDetailsUIIntegrationTests.swift in Sources */,
 				9220879B2B6AAA6B00AA9D44 /* UIViewController+TestHelpers.swift in Sources */,
 				922087972B6AA93B00AA9D44 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				92F1A66A2B6AB19300AE6736 /* CEPGetterSpy.swift in Sources */,
+				92F1A6682B6AB17100AE6736 /* CEPSearchUIIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
