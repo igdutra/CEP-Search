@@ -50,7 +50,25 @@ final class RemoteCEPGetterTests: XCTestCase {
         }
     }
     
-    // Note: Could define especific error cases
+    func test_getCEP_onNonHTTP200Response_failsWithInvalidData() async {
+        let url = anyURL("a-url")
+        let client = HTTPClientSpy()
+        let sut = RemoteCEPGetter(url: url, client: client)
+        let expectedURL = expectedURL(url: url, cep: .init())
+        let expectedError: RemoteCEPGetter.Error = .invalidData
+        let clientResponse = SuccessResponse(response: HTTPURLResponse(statusCode: 300),
+                                             data: Data())
+        client.stub(url: expectedURL, result: .success(clientResponse))
+        
+        do {
+            _ = try await sut.getCEPDetails(for: .init())
+            XCTFail("Expected Error but returned successfully instead")
+        } catch let error as RemoteCEPGetter.Error {
+            XCTAssertEqual(error, expectedError)
+        } catch {
+            XCTFail("Expected AnyError but returned \(error) instead")
+        }
+    }
     
     // MARK: - Success Cases
     
