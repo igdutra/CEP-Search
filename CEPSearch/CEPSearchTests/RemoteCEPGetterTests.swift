@@ -1,5 +1,5 @@
 //
-//  CEPSearchTests.swift
+//  RemoteCEPGetterTests.swift
 //  CEPSearchTests
 //
 //  Created by Ivo on 28/01/24.
