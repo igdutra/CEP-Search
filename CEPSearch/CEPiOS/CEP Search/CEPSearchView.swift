@@ -12,17 +12,22 @@ import CEPSearch
 
 public struct CEPSearchView: View {
     @Binding var cep: String
+    @Binding var nextView: AnyView
     var viewData: CEPSearchViewData
     private var action: (String) async -> Void
     // TODO: Search for another type erasures
-//    private var nextViewToPresent: () -> AnyView
+    private var nextViewToPresent: (() -> AnyView)?
 
+    // Note: tried to move this state to the viewModel througn custom Binding, where it belongs, but did not work.
+    // TODO: Fix that. 
     @State private var shouldPresentNextScreen: Bool = false
     
     public init(cep: Binding<String>,
+                nextView: Binding<AnyView>,
                 viewData: CEPSearchViewData,
                 action: @escaping (String) async -> Void) {
         self._cep = cep
+        self._nextView = nextView
         self.viewData = viewData
         self.action = action
     }
@@ -51,7 +56,8 @@ public struct CEPSearchView: View {
             .padding()
             .navigationDestination(isPresented: $shouldPresentNextScreen,
                                    destination: {
-                EmptyView()
+//                nextViewToPresent?()
+                nextView
             })
         }
     }
@@ -69,7 +75,7 @@ struct CEPSearchView_Previews: PreviewProvider {
         @State private var cep: String = ""
         
         var body: some View {
-            CEPSearchView(cep: $cep,
+            CEPSearchView(cep: $cep, nextView: .constant(AnyView(EmptyView())),
                           viewData: CEPSearchViewData(placeholderText: "Digite o CEP",
                                                       buttonText: "Procurar Endereço"),
                           action: { cep in
