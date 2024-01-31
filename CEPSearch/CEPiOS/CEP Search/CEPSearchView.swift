@@ -12,12 +12,9 @@ import CEPSearch
 
 public struct CEPSearchView: View {
     @Binding var cep: String
-    @Binding var nextView: AnyView
+    @Binding var nextView: AnyView // TODO: Search for another type erasures
     var viewData: CEPSearchViewData
     private var action: (String) async -> Bool
-    // TODO: Search for another type erasures
-    private var nextViewToPresent: (() -> AnyView)?
-
     // Note: tried to move this state to the viewModel through custom Binding, where it belongs, but did not work.
     // TODO: Fix that. 
     @State private var shouldPresentNextScreen: Bool = false
